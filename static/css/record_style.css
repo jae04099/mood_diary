@@ -142,6 +142,11 @@ body {
 .select-music {
 
 }
+input {
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+}
 
 input[type=text] {
     background: #F7F5F7;
