@@ -1,0 +1,209 @@
+/*전체 레이아웃 틀*/
+body {
+    min-width: 320px;
+    max-width: 480px;
+    min-height: 100%;
+    background-color: #ffffff;
+    margin: 0 auto;
+}
+
+.container {
+    max-width: 360px;
+    background-color: #ECECF2;
+    margin: 0 auto;
+    padding: 0 16px;
+}
+
+#top {
+    height: 0px;
+    padding-top: 10px;
+    width: 100%;
+    /*background-color: skyblue;*/
+}
+
+#header {
+    padding-top: 50px;
+    height: 70px;
+    /*background-color: #888999;*/
+
+}
+
+#body {
+    height: max-content;
+    width: 100%;
+    padding-top: 30px;
+    /*background-color: #777777;*/
+}
+
+#footer {
+    padding: 20px;
+}
+
+/*top*/
+
+/*header*/
+.greeting {
+}
+
+.greeting h1 {
+    font-size: 34px;
+    font-family: 'Noto Sans KR';
+    font-weight: 700;
+    color: rgba(0, 0, 0, 0.7);
+}
+
+.greeting h1 span {
+    color: rgba(0, 0, 0, 0.9);
+}
+
+.greeting h3 {
+    font-size: 17px;
+    font-family: 'Noto Sans KR';
+    font-weight: 500;
+    padding-left: 3px;
+    color: rgba(0, 0, 0, 0.5);
+}
+
+.illust img {
+    width: 300px;
+    height: 300px;
+    margin: 0 auto;
+    display: block;
+}
+
+.boxs {
+    display: flex;
+    justify-content: space-around;
+}
+
+.boxs:hover {
+}
+
+.boxs .box {
+    width: 150px;
+    height: 150px;
+}
+
+.boxs a:first-child {
+    background-color: #E28177;
+    border-radius: 20px;
+}
+
+.boxs a:last-child {
+    background-color: #F3A262;
+    border-radius: 20px;
+}
+
+.saying {
+    padding: 20px;
+    color: #ffffff;
+    font-size: 17px;
+}
+
+.saying span {
+    font-weight: 600;
+}
+
+.record_day i {
+    color: #ffffff;
+    font-size: 25px;
+    position: absolute;
+    right: 20px;
+    bottom: 20px;
+}
+
+.acknow_day i {
+    color: #ffffff;
+    font-size: 25px;
+    position: absolute;
+    right: 20px;
+    bottom: 20px;
+}
+
+.record_day.box {
+    position: relative;
+    transition: 30ms;
+}
+
+.acknow_day.box {
+    position: relative;
+    transition: 30ms;
+}
+
+.record_day.box:hover {
+    background: #BB6E66;
+    border-radius: 20px;
+}
+
+.acknow_day.box:hover {
+    background: #D79867;
+    border-radius: 20px;
+}
+
+.boxs .box .record_day {
+    background-color: #E28177;
+}
+
+.boxs .box .acknow_day {
+    background-color: #F3A262;
+}
+
+/*list of mood*/
+.listsByMood {
+    margin-top: 50px
+}
+
+.listsByMood h3.expWhatToDo {
+    text-align: center;
+    font-size: 17px;
+    font-weight: 600;
+    color: rgba(0,0,0,0.7);
+}
+
+.listsByMood .feelings {
+    margin: 30px 50px 0 50px;
+    text-align: center;
+}
+
+.listsByMood .feelings ul {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.listsByMood .feelings ul.positive {
+}
+
+.listsByMood .feelings ul.positive li {
+}
+
+.listsByMood .feelings ul.positive li a {
+}
+
+.feelText {
+    font-size: 17px;
+}
+
+.listsByMood .feelings ul.positive li img {
+    width: 70px;
+    height: 70px;
+}
+
+.listsByMood .feelings ul.negative {
+    margin-top: 25px;
+}
+
+.listsByMood .feelings ul.negative li {
+}
+
+.listsByMood .feelings ul.negative li img {
+    width: 70px;
+    height: 70px;
+}
+
+.end-line {
+    margin-top: 50px;
+    border-top: 1px solid rgba(0,0,0,0.7);
+    width: 150px;
+    height: 0;
+}

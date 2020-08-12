@@ -1,0 +1,131 @@
+/*전체 레이아웃 틀*/
+body {
+    min-width: 320px;
+    max-width: 480px;
+    min-height: 100%;
+    background-color: #ffffff;
+    margin: 0 auto;
+}
+
+.container {
+    max-width: 360px;
+    background-color: #ECECF2;
+    margin: 0 auto;
+    padding: 0 16px;
+}
+
+#top {
+    height: 0px;
+    padding-top: 10px;
+    width: 100%;
+    /*background-color: skyblue;*/
+}
+
+#header {
+    padding-top: 50px;
+    height: 70px;
+    /*background-color: #888999;*/
+
+}
+
+#body {
+    height: 480px;
+    width: 100%;
+    /*background-color: #777777;*/
+}
+
+#footer {
+    padding: 20px;
+}
+
+/*top*/
+
+/*header*/
+.greeting {}
+
+.greeting h1 {
+    font-size: 34px;
+    font-family: 'Noto Sans KR';
+    font-weight: 700;
+    color: rgba(0, 0, 0, 0.90);
+}
+
+.greeting h3 {
+    font-size: 17px;
+    font-family: 'Noto Sans KR';
+    font-weight: 500;
+    color: rgba(0, 0, 0, 0.5);
+}
+
+.illust img {
+    width: 300px;
+    height: 300px;
+    margin: 0 auto;
+    display: block;
+}
+
+input[type=text],
+select {
+
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    width: 100%;
+    padding: 12px 20px;
+    margin: 8px 0;
+    display: inline-block;
+    border-radius: 25px;
+    box-sizing: border-box;
+    box-shadow: none;
+}
+
+input#fname {
+    background: #E4E4E9;
+    border-color: transparent;
+    border: transparent;
+    font-size: 17px;
+    text-align: center;
+}
+
+input#fname:focus {
+    outline: none;
+}
+
+input:focus::-webkit-input-placeholder {
+    color: transparent;
+}
+
+::placeholder {
+    text-align: center;
+    font-size: 17px;
+}
+
+::placeholder:focus {
+    color: transparent;
+}
+
+input[type=submit] {
+    width: 100%;
+    background-color: #424177;
+    font-size: 17px;
+    color: white;
+    padding: 12px 20px;
+    margin: 10px 0 0 0;
+    border: none;
+    border-radius: 25px;
+    cursor: pointer;
+    transition: 0.2s ease-in;
+}
+
+input[type=submit]:hover {
+    background-color: #252543;
+
+}
+
+input[type=submit]:hover .btn {
+    padding-top: 30px
+}
+
+.btn .btn-name {}
+
+.btn .btn-enter {}
