@@ -54,8 +54,7 @@ body {
 
 
 /*header*/
-.greeting {
-}
+.greeting {}
 
 .greeting h1 {
     font-size: 34px;
@@ -77,9 +76,7 @@ body {
 }
 
 /*list of mood*/
-.listsByMood {
-
-}
+.listsByMood {}
 
 .expWhatToDo {
     margin-top: 50px;
@@ -100,14 +97,11 @@ body {
     justify-content: space-between;
 }
 
-.listsByMood .feelings ul.positive {
-}
+.listsByMood .feelings ul.positive {}
 
-.listsByMood .feelings ul.positive li {
-}
+.listsByMood .feelings ul.positive li {}
 
-.listsByMood .feelings ul.positive li a {
-}
+.listsByMood .feelings ul.positive li a {}
 
 .feelText {
     font-size: 17px;
@@ -122,8 +116,7 @@ body {
     margin-top: 25px;
 }
 
-.listsByMood .feelings ul.negative li {
-}
+.listsByMood .feelings ul.negative li {}
 
 .listsByMood .feelings ul.negative li img {
     width: 70px;
@@ -139,14 +132,6 @@ body {
 }
 
 /*select music*/
-.select-music {
-
-}
-input {
-    -webkit-appearance: none;
-    -moz-appearance: none;
-    appearance: none;
-}
 
 input[type=text] {
     background: #F7F5F7;
@@ -155,7 +140,8 @@ input[type=text] {
 }
 
 
-input[type=text], select {
+input[type=text],
+select {
     width: 100%;
     padding: 12px 20px;
     margin: 8px 0;
@@ -210,9 +196,6 @@ input:focus::-webkit-input-placeholder {
     top: 10px;
 }
 
-.listOfMusic ul.music-more li {
-}
-
 .listOfMusic ul.music-more li.title {
     font-weight: 600;
     font-size: 17px;
@@ -235,9 +218,6 @@ input:focus::-webkit-input-placeholder {
 }
 
 /*diary section*/
-.diary {
-
-}
 
 .diary .expWhatToDo {
     margin-bottom: 30px;
@@ -248,10 +228,6 @@ input:focus::-webkit-input-placeholder {
     width: 80%;
     display: flex;
     justify-content: space-between;
-
-}
-
-.diarytop .date {
 
 }
 
@@ -286,8 +262,7 @@ input:focus::-webkit-input-placeholder {
     border: none;
 }
 
-.diarytop .dontwantbtn {
-}
+.diarytop .dontwantbtn {}
 
 .diarytop .dontwantbtn input {
     width: 117px;
@@ -314,42 +289,7 @@ input:focus::-webkit-input-placeholder {
     justify-content: space-between;
 }
 
-/*.diaryMain .paper{}*/
-/*.diaryMain .paper > input[type=text] {*/
-
-/*}*/
-
-
-/*input#diaryPaper {*/
-/*    width: 226px;*/
-/*    height: 187px;*/
-/*    background: #D9ADAD;*/
-/*    box-shadow: 0px 1px 4px rgba(0, 0, 0, 0.25);*/
-/*    border-radius: 10px;*/
-/*    border: none;*/
-/*    font-size: 17px;*/
-/*    font-family: 'Noto Sans KR', FontAwesome;*/
-/*}*/
-
-/*input#diaryPaper:focus {*/
-/*    outline: none;*/
-/*}*/
-
-/*.diaryMain .paper > input:focus::-webkit-input-placeholder {*/
-/*    color: transparent;*/
-/*}*/
-
-/*.diaryMain .paper > input::placeholder {*/
-/*    font-size: 17px;*/
-/*}*/
-
-/*.diaryMain .paper > input::placeholder:focus {*/
-/*    color: transparent;*/
-/*}*/
-
-.diaryMain ul.palette {
-
-}
+.diaryMain ul.palette {}
 
 .diaryMain ul li {
     width: 30px;
@@ -387,6 +327,9 @@ input:focus::-webkit-input-placeholder {
 }
 
 input[type=submit] {
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
     width: 100%;
     background-color: #95959B;
     font-size: 17px;
@@ -404,5 +347,8 @@ input[type=submit]:hover {
 
 }
 
-input[type=submit]:hover {
+input[type=button] {
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
 }
