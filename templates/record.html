@@ -88,11 +88,12 @@
                 <div class="search-music">
                     <form action="methods">
                         <label for="fname"></label>
-                        <input type="text" id="fname" class="whatToSearch" name="firstname" placeholder="&#xF002; 검색">
+                        <input type="text" id="fname" class="whatToSearch" name="firstname" placeholder="&#xF002; 검색"
+                            autocomplete="off" onkeydown="addMusicList()">
                     </form>
                 </div>
                 <div class="listOfMusic">
-                    <div class="album"><img src="https://image.bugsm.co.kr/album/images/500/200196/20019666.jpg"
+                    <!--  <div class="album"><img src="https://image.bugsm.co.kr/album/images/500/200196/20019666.jpg"
                             alt="검정치마 everything">
                         <ul class="music-more">
                             <li class="title">EVERYTHING</li>
@@ -113,13 +114,14 @@
                             <li class="artist">검정치마 The Black Skirts</li>
                         </ul>
                     </div>
+-->
                 </div>
             </div>
             <hr class="end-line">
             <div class="diary">
                 <h3 class="expWhatToDo">오늘 가장 기억에 남는 일은?</h3>
                 <div class="diarytop">
-                    <div class="date"><span>2020년 10월 27일</span></div>
+                    <div class="date"><input type="date"><span>2020년 10월 27일</span></div>
                     <div class="dontwantbtn"><input type="button" value="기록 안할래요"></div>
                 </div>
                 <div class="diaryMain">
@@ -161,7 +163,7 @@
                 type: 'GET',
                 url: 'http://ws.audioscrobbler.com/2.0/?method=track.search&track=' + musicKeyWord + '&api_key=48bee338cada7005923f7ef2dd843dfa&format=json',
                 success: function (response) {
-                    console.log(url)
+                    $('.listOfMusic').empty();
                     let musicList = response["results"]["trackmatches"]["track"];
                     for (let i = 0; i < musicList.length; i++) {
                         let albumImg = musicList[i]["image"][0]["#text"]
@@ -174,14 +176,13 @@
         }
 
         function getMusicHtml(img, title, artist) {
-            let musicHtml = `<div class="listOfMusic">
-                    <div class="album"><img src="${img}"
-                            alt="검정치마 everything"></div>
-                    <ul class="music-more">
-                        <li class="title">${title}</li>
-                        <li class="artist">${artist}</li>
-                    </ul>
-                </div>`
+            let musicHtml = `<div class="album"><img src="${img}"
+                            alt="">
+                        <ul class="music-more">
+                            <li class="title">${title}</li>
+                            <li class="artist">${artist}</li>
+                        </ul>
+                    </div>`
             $('.listOfMusic').append(musicHtml)
         }
     </script>
