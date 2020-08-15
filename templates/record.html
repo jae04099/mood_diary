@@ -89,7 +89,7 @@
                     <form action="methods">
                         <label for="fname"></label>
                         <input type="text" id="fname" class="whatToSearch" name="firstname" placeholder="&#xF002; 검색"
-                            autocomplete="off" onkeydown="addMusicList()">
+                            autocomplete="off" onkeyup="addMusicList()">
                     </form>
                 </div>
                 <div class="listOfMusic">
@@ -121,7 +121,8 @@
             <div class="diary">
                 <h3 class="expWhatToDo">오늘 가장 기억에 남는 일은?</h3>
                 <div class="diarytop">
-                    <div class="date"><input type="date"><span>2020년 10월 27일</span></div>
+                    <div class="date"><label for="input-date"></label>
+                        <input type="date" name="dateofbirth" id="dateofbirth" value="yyyy-mm-dd"></div>
                     <div class="dontwantbtn"><input type="button" value="기록 안할래요"></div>
                 </div>
                 <div class="diaryMain">

@@ -25,7 +25,9 @@
           rel="stylesheet">
 
     <!--font-family: 'Gothic A1', sans-serif;-->
-
+<!-- scripts -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script><script src="../js/modernizr-custom.js"></script>
+<script src="../js/ie-checker.js"></script>
 </head>
 <body>
 
@@ -48,8 +50,8 @@
         </div>
         <div class="btn">
                 <label for="fname"></label>
-                <input type="text" id="fname" name="firstname" placeholder="이름을 입력해주세요">
-                <a href="main.html"><input type="submit" value="시작하기" class="btn-enter"></a>
+                <input type="text" id="fname" name="firstname" placeholder="이름을 입력해주세요" autocomplete="off">
+                <input type="submit" value="시작하기" class="btn-enter" onclick="sendName()">
         </div>
 
     </section>
@@ -62,8 +64,12 @@
 </div>
 
 <!-- 자바스크립트 라이브러리 -->
-<script src="../js/jquery.min_1.12.4.js"></script>
-<script src="../js/modernizr-custom.js"></script>
-<script src="../js/ie-checker.js"></script>
+<script>
+    function sendName(){
+        let name = $('#fname').val()
+        window.location.href = "/main?name="+name
+    }
+
+</script>
 </body>
 </html>

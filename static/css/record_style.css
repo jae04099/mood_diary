@@ -189,11 +189,8 @@ input:focus::-webkit-input-placeholder {
     padding: 12px 14px;
 
 }
-
 .listOfMusic {
-    position: relative;
-}
-
+    position: relative;}
 .listOfMusic ul.music-more {
     position: absolute;
     top: 0;
@@ -219,6 +216,10 @@ input:focus::-webkit-input-placeholder {
     width: 80px;
     margin-bottom: 15px;
     position: relative;
+}
+.listOfMusic .album:hover {
+    cursor: pointer;
+    background-color: #CECED3;
 }
 
 .listOfMusic .album img {
