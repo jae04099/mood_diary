@@ -89,11 +89,7 @@ body {
 .feelings {
     text-align: center;
 }
-.varFeel.lovely,
-.varFeel.angry{
-    width: 70px;
-    height: 70px;
-}
+
 .feelings input {
     margin: 0;
     padding: 0;
@@ -101,18 +97,19 @@ body {
     -moz-appearance: none;
     appearance: none;
 }
-.feelings input:active +.varFeel{opacity: .9;}
-.feelings input:checked +.varFeel{
+.feelings input:active +.varFeel > img{opacity: .9;}
+.feelings input:checked +.varFeel > img{
     -webkit-filter: none;
        -moz-filter: none;
             filter: none;
 }
-.varFeel {
+.varFeel > img {
     cursor:pointer;
     background-size:contain;
     background-repeat:no-repeat;
     display:inline-block;
-    width:100px;height:70px;
+    /* margin-right: 20px; */
+    width:70px;height:70px;
     -webkit-transition: all 100ms ease-in;
        -moz-transition: all 100ms ease-in;
             transition: all 100ms ease-in;
@@ -120,35 +117,38 @@ body {
        -moz-filter: brightness(1.8) grayscale(1) opacity(.9);
             filter: brightness(1.8) grayscale(1) opacity(.9);
 }
-.varFeel:hover {
+.varFeel > img:hover {
     -webkit-filter: brightness(1.2) grayscale(.5) opacity(.9);
        -moz-filter: brightness(1.2) grayscale(.5) opacity(.9);
             filter: brightness(1.2) grayscale(.5) opacity(.9);
 }
+img :nth-child(3),
+img :nth-child(6) {
+} 
 
 .positive {margin-top: 30px;}
 .negative {margin-top: 20px;}
 .satisfy {
-    background-image: url(../img/satisfy.png);
+    /* background-image: url(../img/satisfy.png); */
 }
 
 .happy {
-    background-image: url(../img/smile.png);
+    /* background-image: url(../img/smile.png); */
 }
 
 .lovely {
-    background-image: url(../img/lovely.png);
+    /* background-image: url(../img/lovely.png); */
 }
 .unsatisfy {
-    background-image: url(../img/disappoint.png);
+    /* background-image: url(../img/disappoint.png); */
 }
 
 .sad {
-    background-image: url(../img/sad.png);
+    /* background-image: url(../img/sad.png); */
 }
 
 .angry {
-    background-image: url(../img/angry.png);
+    /* background-image: url(../img/angry.png); */
 }
 
 .end-line {

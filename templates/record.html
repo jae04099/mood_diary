@@ -45,20 +45,36 @@
                 <h3 class="expWhatToDo">오늘 기분 어때요?</h3>
                 <div class="feelings">
                     <div class="positive">
-                        <input checked="checked" id="satisfy" type="radio" name="feeling-img" value="satisfy" />
-                        <label class="varFeel satisfy" for="satisfy"></label>
-                        <input id="happy" type="radio" name="feeling-img" value="happy" />
-                        <label class="varFeel happy" for="happy"></label>
-                        <input id="lovely" type="radio" name="feeling-img" value="lovely" />
-                        <label class="varFeel lovely" for="lovely"></label>
+                        <input checked="checked" id="satisfy" type="radio" name="feeling-img" value="편안" />
+                        <label class="varFeel satisfy" for="satisfy">
+                            <img src="../static/img/satisfy.png" alt="satisfy" style="    margin-right: 20px;
+                            ">
+                        </label>
+                        <input id="happy" type="radio" name="feeling-img" value="기쁨" />
+                        <label class="varFeel happy" for="happy">
+                            <img src="../static/img/smile.png" alt="happy" style="    margin-right: 20px;
+                            ">
+                        </label>
+                        <input id="lovely" type="radio" name="feeling-img" value="설렘" />
+                        <label class="varFeel lovely" for="lovely">
+                            <img src="../static/img/lovely.png" alt="lovely">
+                        </label>
                     </div>
                     <div class="negative">
-                        <input id="unsatisfy" type="radio" name="feeling-img" value="unsatisfy" />
-                        <label class="varFeel unsatisfy" for="unsatisfy"></label>
-                        <input id="sad" type="radio" name="feeling-img" value="sad" />
-                        <label class="varFeel sad" for="sad"></label>
-                        <input id="angry" type="radio" name="feeling-img" value="angry" />
-                        <label class="varFeel angry" for="angry"></label>
+                        <input id="unsatisfy" type="radio" name="feeling-img" value="불안" />
+                        <label class="varFeel unsatisfy" for="unsatisfy">
+                            <img src="../static/img/disappoint.png" alt="unsatisfy" style="    margin-right: 20px;
+                            ">
+                        </label>
+                        <input id="sad" type="radio" name="feeling-img" value="슬픔" />
+                        <label class="varFeel sad" for="sad">
+                            <img src="../static/img/sad.png" alt="sad" style="    margin-right: 20px;
+                            ">
+                        </label>
+                        <input id="angry" type="radio" name="feeling-img" value="화남" />
+                        <label class="varFeel angry" for="angry">
+                            <img src="../static/img/angry.png" alt="angry">
+                        </label>
                     </div>
                 </div>
                 <!-- <ul class="positive">
@@ -159,8 +175,8 @@
                     </div>
                 </div>
                 <div class="finalBtn">
-                    <form action="check-record.html">
-                        <input type="submit" value="제출하기" class="btn-enter">
+                    <form action=''>
+                        <input type="submit" onclick="makeList()" value="제출하기" class="btn-enter">
                     </form>
                 </div>
         </section>
@@ -180,10 +196,7 @@
         $('.album').click(function (e) {
             e.preventDefault();
         });
-        // function addMusic(){
-        //     let musicTitle = $("ul.music-more").find('li.title')
-        //     alert(musicTitle.$(this).text())
-        // }
+
         $(document).on('click', '.music-more', function () {
             let text = $(this).find(".title").text();
             let artist = $(this).find(".artist").text();
@@ -233,6 +246,29 @@
                     </div>`
             $('.listOfMusic').append(musicHtml)
         }
+// db에 기록 저장하는 함수
+
+function makeList(){
+        let feelOne = $("input[name=feeling-img]:checked").val();
+        let musicOneTitle = $(".favMusic .music-more").find("li.title").text();
+        let musicOneArtist = $(".favMusic .music-more").find("li.artist").text();
+        let dateOne = $("input[type=date]").val();
+        let diaryOne = $("#exampleFormControlTextarea6").val();
+        
+        $.ajax({
+            type: "POST",
+            url: "/record",
+            data: {date: dateOne, feel: feelOne, musicTitle: musicOneTitle, musicArtist: musicOneArtist, diary: diaryOne},
+            success: function (response) {
+                if(response["result"] == "success"){
+                    alert(response["msg"]);
+                    window.location.href = "/main";
+                }
+            }
+        })
+}
+
+
     </script>
 </body>
 

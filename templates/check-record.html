@@ -11,12 +11,9 @@
     <title>감정 플레이리스트</title>
 
     <!--css-->
-    <link rel="stylesheet" href="../static/css/check-record_style.css">
-    <link rel="stylesheet" href="../static/css/reset.css">
-    <link rel="stylesheet" href="../static/css/font-awesome.css">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet"/>
-    <link rel="stylesheet" href="../static/css/fontawesome.min.css">
-
+    <link rel="stylesheet" href="../static/css/reset.css">
+    <link rel="stylesheet" href="../static/css/check-record_style.css">
 
     <!--파비콘-->
 
@@ -35,8 +32,8 @@
 <div class="container">
     <div id="top">
         <div class="key-back">
-            <a href="main.html"><i class="fa fa-arrow-left" aria-hidden="true"></i>
-                메인으로</a>
+            <i class="fa fa-arrow-left" aria-hidden="true"></i>
+                메인으로
         </div>
     </div>
     <header id="header">
@@ -59,8 +56,6 @@
             <li class="favMusic">
                 <hr class="end-line">
                 <div class="listOfMusic">
-                    <div class="album"><img src="https://image.bugsm.co.kr/album/images/500/200196/20019666.jpg"
-                                            alt="검정치마 everything"></div>
                     <ul class="music-more">
                         <li class="title">EVERYTHING</li>
                         <li class="artist">검정치마 The Black Skirts</li>
@@ -68,7 +63,7 @@
                 </div>
             </li>
         </ul>
-        <ul class="diaryBox">
+        <!-- <ul class="diaryBox">
             <i class="fa fa-times-circle" aria-hidden="true"></i>
             <li>
                 <div class="faceImg"><img src="../static/img/lovely.png" alt=""></div>
@@ -97,15 +92,74 @@
                     </ul>
                 </div>
             </li>
-        </ul>
+        </ul> -->
     </section>
     <footer id="footer"></footer>
 </div>
 <!-- 자바스크립트 라이브러리 -->
-<script src="../js/jquery.min_1.12.4.js"></script>
-<script src="../js/modernizr-custom.js"></script>
-<script src="../js/script.js"></script>
-<script src="../js/ie-checker.js"></script>
+<script src="https://code.jquery.com/jquery-3.5.1.js"
+        integrity="sha256-QWo7LDvxbWT2tbbQ97B53yJnYU3WhH/C8ycbRAkjPDc=" crossorigin="anonymous"></script>
 <script src="https://use.fontawesome.com/b17215fc37.js"></script>
+<script>
+    //db의 기록을 읽어서 출력하는 함수
+$('document').ready(function(){
+    $('.diaryBox').empty();
+    readList();
+});
+
+function readList(){
+    $.ajax({
+        type: 'GET',
+        url: '/checkrecorded',
+        data: {},
+        success: function (response){
+            if(response["result"] == 'success'){
+                let records = response["records"];
+                // console.log(records.length)
+                let feelUrl = null;
+                for (let i = 0; i < records.length; i++){
+                    if(records[i]["feel"] == "편안"){
+                        feelUrl = "../static/img/satisfy.png";
+                    }else if(records[i]["feel"] == "기쁨"){
+                        feelUrl = "../static/img/smile.png"
+                    }else if(records[i]["feel"] == "설렘"){
+                        feelUrl = "../static/img/lovely.png"
+                    }else if(records[i]["feel"] == "불안"){
+                        feelUrl = "../static/img/disappoint.png"
+                    }else if(records[i]["feel"] == "슬픔"){
+                        feelUrl = "../static/img/sad.png"
+                    }else if(records[i]["feel"] == "화남"){
+                        feelUrl = "../static/img/angry.png"
+                    }
+                    makeHtml(feelUrl, records[i]["date"],records[i]["diary"] ,records[i]["music_title"], records[i]["music_artist"])
+                }
+            }
+        }
+    })
+}
+
+function makeHtml(feeling, date, diary, mTitle, mArtist){
+    let tempHtml = `
+    <i class="fa fa-times-circle" aria-hidden="true"></i>
+            <li>
+                <div class="faceImg"><img src="${feeling}" alt=""></div>
+            </li>
+            <li class="notImg">
+                <span class="dateSmol">${date}</span>
+                <p class="diarySmol">${diary}
+            </li>
+            <li class="favMusic">
+                <hr class="end-line">
+                <div class="listOfMusic">
+                    <ul class="music-more">
+                        <li class="title">${mTitle}</li>
+                        <li class="artist">${mArtist}</li>
+                    </ul>
+                </div>
+            </li>
+    `;
+    $('.diaryBox').append(tempHtml)
+}
+</script>
 </body>
 </html>
