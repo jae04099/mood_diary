@@ -42,8 +42,6 @@ body {
 /*top*/
 
 /*header*/
-.greeting {
-}
 
 .greeting h1 {
     font-size: 34px;
@@ -64,63 +62,77 @@ body {
     color: rgba(0, 0, 0, 0.5);
 }
 
-.illust img {
-    width: 300px;
-    height: 300px;
-    margin: 0 auto;
-    display: block;
-}
+/* body-button */
 
 .boxs {
     display: flex;
     justify-content: space-around;
+    position: relative;
+
 }
 
-.boxs:hover {
-}
-
-.boxs .box {
+.boxs button {
     width: 150px;
     height: 150px;
+    cursor: pointer;
+    border-radius: 20px;
+    border: none;
 }
 
-.boxs a:first-child {
+.boxs button.firstBtn {
     background-color: #E28177;
-    border-radius: 20px;
 }
 
-.boxs a:last-child {
+.boxs button.secondBtn {
     background-color: #F3A262;
-    border-radius: 20px;
+
+}
+
+.box {
 }
 
 .saying {
     padding: 20px;
     color: #ffffff;
     font-size: 17px;
+    text-align: left;
 }
 
 .saying span {
-    font-weight: 600;
+ font-weight: 600;
 }
 
-.record_day i {
+.record_day {
+    top: 0;
+    left: 10px;
+    position: absolute;
+}
+
+.acknow_day {
+    top: 0;
+    left: 190px;
+    position: absolute;
+}
+
+.record_day > i,
+.acknow_day > i
+{
     color: #ffffff;
     font-size: 25px;
     position: absolute;
-    right: 20px;
-    bottom: 20px;
+    bottom: -30px;
+    right: -30px;
 }
 
-.acknow_day i {
-    color: #ffffff;
-    font-size: 25px;
-    position: absolute;
-    right: 20px;
-    bottom: 20px;
+.record_day > i {
+
 }
 
-.record_day.box {
+.acknow_day > i {
+
+}
+
+/* .record_day.box {
     position: relative;
     transition: 30ms;
 }
@@ -128,25 +140,18 @@ body {
 .acknow_day.box {
     position: relative;
     transition: 30ms;
-}
+} */
 
-.record_day.box:hover {
+button.firstBtn:hover {
     background: #BB6E66;
     border-radius: 20px;
 }
 
-.acknow_day.box:hover {
+button.secondBtn:hover {
     background: #D79867;
     border-radius: 20px;
 }
 
-.boxs .box .record_day {
-    background-color: #E28177;
-}
-
-.boxs .box .acknow_day {
-    background-color: #F3A262;
-}
 
 /*list of mood*/
 .listsByMood {
@@ -171,15 +176,6 @@ body {
     justify-content: space-between;
 }
 
-.listsByMood .feelings ul.positive {
-}
-
-.listsByMood .feelings ul.positive li {
-}
-
-.listsByMood .feelings ul.positive li a {
-}
-
 .feelText {
     font-size: 17px;
 }
@@ -193,8 +189,6 @@ body {
     margin-top: 25px;
 }
 
-.listsByMood .feelings ul.negative li {
-}
 
 .listsByMood .feelings ul.negative li img {
     width: 70px;

@@ -47,18 +47,22 @@
 
         <section id="body">
             <div class="boxs">
-                <a href="record.html">
-                    <div class="record_day box">
-                        <div class="saying">오늘을<br><span>기록하기</span></div>
-                        <i class="fa fa-pencil-square-o" aria-hidden="true"></i>
-                    </div>
-                </a>
-                <a href="check-record.html">
-                    <div class="acknow_day box">
-                        <div class="saying">기록<br><span>확인하기</span></div>
-                        <i class="fa fa-search" aria-hidden="true"></i>
-                    </div>
-                </a>
+                <div class="box1">
+                <button class="firstBtn" onclick="writing()">
+                <div class="record_day box">
+                    <div class="saying">오늘을<br><span>기록하기</span></div>
+                    <i class="fa fa-pencil-square-o" aria-hidden="true"></i>
+                </div>
+                </button>
+            </div>
+            <div class="box2">
+                <button class="secondBtn" onclick="check()">
+                <div class="acknow_day box">
+                    <div class="saying">기록<br><span>확인하기</span></div>
+                    <i class="fa fa-search" aria-hidden="true"></i>
+                </div>
+                </button>
+            </div>
             </div>
             <div class="listsByMood">
                 <h3 class="expWhatToDo">오늘 같은 날 들었던 노래는?</h3>
@@ -130,6 +134,13 @@
         </div></header>`
             $('#top').append(fullHtml);
         }
+        function writing() {
+            window.location.href = '/record'
+        }
+        function check(){
+            window.location.href = '/checkrecord'
+        }
+
     </script>
 </body>
 

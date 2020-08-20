@@ -76,7 +76,6 @@ body {
 }
 
 /*list of mood*/
-.listsByMood {}
 
 .expWhatToDo {
     margin-top: 50px;
@@ -86,47 +85,75 @@ body {
     color: rgba(0, 0, 0, 0.7);
 }
 
-.listsByMood .feelings {
-    margin: 30px 50px 0 50px;
+
+.feelings {
     text-align: center;
 }
-
-.listsByMood .feelings ul {
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-}
-
-.listsByMood .feelings ul.positive {}
-
-.listsByMood .feelings ul.positive li {}
-
-.listsByMood .feelings ul.positive li a {}
-
-.feelText {
-    font-size: 17px;
-}
-
-.listsByMood .feelings ul.positive li img {
+.varFeel.lovely,
+.varFeel.angry{
     width: 70px;
     height: 70px;
 }
-
-.listsByMood .feelings ul.negative {
-    margin-top: 25px;
+.feelings input {
+    margin: 0;
+    padding: 0;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+}
+.feelings input:active +.varFeel{opacity: .9;}
+.feelings input:checked +.varFeel{
+    -webkit-filter: none;
+       -moz-filter: none;
+            filter: none;
+}
+.varFeel {
+    cursor:pointer;
+    background-size:contain;
+    background-repeat:no-repeat;
+    display:inline-block;
+    width:100px;height:70px;
+    -webkit-transition: all 100ms ease-in;
+       -moz-transition: all 100ms ease-in;
+            transition: all 100ms ease-in;
+    -webkit-filter: brightness(1.8) grayscale(1) opacity(.9);
+       -moz-filter: brightness(1.8) grayscale(1) opacity(.9);
+            filter: brightness(1.8) grayscale(1) opacity(.9);
+}
+.varFeel:hover {
+    -webkit-filter: brightness(1.2) grayscale(.5) opacity(.9);
+       -moz-filter: brightness(1.2) grayscale(.5) opacity(.9);
+            filter: brightness(1.2) grayscale(.5) opacity(.9);
 }
 
-.listsByMood .feelings ul.negative li {}
+.positive {margin-top: 30px;}
+.negative {margin-top: 20px;}
+.satisfy {
+    background-image: url(../img/satisfy.png);
+}
 
-.listsByMood .feelings ul.negative li img {
-    width: 70px;
-    height: 70px;
+.happy {
+    background-image: url(../img/smile.png);
+}
+
+.lovely {
+    background-image: url(../img/lovely.png);
+}
+.unsatisfy {
+    background-image: url(../img/disappoint.png);
+}
+
+.sad {
+    background-image: url(../img/sad.png);
+}
+
+.angry {
+    background-image: url(../img/angry.png);
 }
 
 .end-line {
-    margin-top: 50px;
-    border-top: 1px solid rgba(0, 0, 0, 0.7);
-    border-style: inset;
+    margin-top: 20px;
+    border: 0.38px solid rgba(0, 0, 0, 0.4);
     width: 150px;
     height: 0;
 }
@@ -180,17 +207,41 @@ input:focus::-webkit-input-placeholder {
 
 /*music list*/
 
-.listOfMusic {
+.listOfMusic{
     margin: 0 auto;
     width: 300px;
+    max-height: 400px;
+    overflow: hidden;
     background: #F7F5F7;
     box-shadow: 0px 1px 4px rgba(0, 0, 0, 0.25);
     border-radius: 10px;
     padding: 12px 14px;
-
 }
-.listOfMusic {
-    position: relative;}
+
+music-more {
+    left: 0;
+    margin-bottom: 20px;
+}
+
+.listOfMusic,
+.favMusic {
+    position: relative;
+}
+
+.favMusic ul.music-more {
+    position: absolute;
+    top: 10px;
+    left: 20px;
+    width: 325px;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    white-space: nowrap;
+}
+
+.favMusic {
+    height: 50px;
+}
+
 .listOfMusic ul.music-more {
     position: absolute;
     top: 0;
@@ -201,31 +252,38 @@ input:focus::-webkit-input-placeholder {
     white-space: nowrap;
 }
 
-.listOfMusic ul.music-more li.title {
+.listOfMusic ul.music-more li.title,
+.favMusic ul.music-more li.title  {
     font-weight: 600;
     font-size: 17px;
     color: rgba(0, 0, 0, 0.9);
 }
 
-.listOfMusic ul.music-more li.artist {
+.listOfMusic ul.music-more li.artist,
+.favMusic ul.music-more li.artist  {
     color: #777777
 }
 
+
 .listOfMusic .album {
     height: 100%;
-    width: 80px;
+    width: 100%;
+    margin-right: 0;
     margin-bottom: 15px;
     position: relative;
 }
+
 .listOfMusic .album:hover {
     cursor: pointer;
     background-color: #CECED3;
+    z-index: 1000;
 }
 
 .listOfMusic .album img {
     width: 50px;
     height: 50px;
 }
+
 
 /*diary section*/
 
@@ -358,4 +416,8 @@ input[type=button] {
     -webkit-appearance: none;
     -moz-appearance: none;
     appearance: none;
+}
+
+#clickedEmo {
+    color: lawngreen;
 }

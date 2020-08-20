@@ -10,17 +10,11 @@
     <meta name="description" content="감정을 음악으로 기록하는 기록집 입니다.">
     <meta name="keywords" content="음악, 음악기록, 일기, 다이어리, mood diary, feeling diary, 감정 기록장, 감정 플레이리스트, 감정 음악">
     <title>감정 플레이리스트</title>
-
     <!--css-->
     <link rel="stylesheet" href="../static/css/record_style.css">
     <link rel="stylesheet" href="../static/css/reset.css">
-    <link rel="stylesheet" href="../static/css/font-awesome.css">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" />
-    <link rel="stylesheet" href="../static/css/fontawesome.min.css">
-
-
     <!--파비콘-->
-
     <!--웹폰트-->
     <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@100;300;400;500;700;900&display=swap"
         rel="stylesheet">
@@ -29,8 +23,6 @@
         rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@100;300;400;500;700;900&display=swap"
         rel="stylesheet">
-
-
     <!--font-family: 'Gothic A1', sans-serif;-->
 </head>
 
@@ -52,48 +44,66 @@
             <div class="listsByMood">
                 <h3 class="expWhatToDo">오늘 기분 어때요?</h3>
                 <div class="feelings">
-                    <ul class="positive">
-                        <li class="satisfy"><a href="#"><img src="../static/img/satisfy.png" alt="satisfy face">
+                    <div class="positive">
+                        <input checked="checked" id="satisfy" type="radio" name="feeling-img" value="satisfy" />
+                        <label class="varFeel satisfy" for="satisfy"></label>
+                        <input id="happy" type="radio" name="feeling-img" value="happy" />
+                        <label class="varFeel happy" for="happy"></label>
+                        <input id="lovely" type="radio" name="feeling-img" value="lovely" />
+                        <label class="varFeel lovely" for="lovely"></label>
+                    </div>
+                    <div class="negative">
+                        <input id="unsatisfy" type="radio" name="feeling-img" value="unsatisfy" />
+                        <label class="varFeel unsatisfy" for="unsatisfy"></label>
+                        <input id="sad" type="radio" name="feeling-img" value="sad" />
+                        <label class="varFeel sad" for="sad"></label>
+                        <input id="angry" type="radio" name="feeling-img" value="angry" />
+                        <label class="varFeel angry" for="angry"></label>
+                    </div>
+                </div>
+                <!-- <ul class="positive">
+                        <li class="satisfy"><a href="#" onclick = "clickedSatisfy()" class="feellink"><img src="../static/img/satisfy.png" alt="satisfy face">
                                 <div class="satisfy feelText">편안</div>
                             </a>
                         </li>
-                        <li class="happy"><a href="#"><img src="../static/img/smile.png" alt="happy face">
+                        <li class="happy"><a href="#" onclick = "clickedHappy()" class="feellink"><img src="../static/img/smile.png" alt="happy face">
                                 <div class="happy feelText">기쁨</div>
                             </a>
                         </li>
-                        <li class="lovely"><a href="#"><img src="../static/img/lovely.png" alt="lovely face">
+                        <li class="lovely"><a href="#" onclick = "clickedLovely()" class="feellink"><img src="../static/img/lovely.png" alt="lovely face">
                                 <div class="lovely feelText">설렘</div>
                             </a>
                         </li>
                     </ul>
                     <ul class="negative">
-                        <li class="unsatisfy"><a href="#"><img src="../static/img/disappoint.png" alt="disappoint face">
+                        <li class="unsatisfy"><a href="#" onclick = "clickedUnsatisfy()" class="feellink"><img src="../static/img/disappoint.png" alt="disappoint face">
                                 <div class="unsatisfy feelText">불안</div>
                             </a>
                         </li>
-                        <li class="sad"><a href="#"><img src="../static/img/sad.png" alt="sad face">
+                        <li class="sad"><a href="#" onclick = "clickedSad()" class="feellink"><img src="../static/img/sad.png" alt="sad face">
                                 <div class="sad feelText">슬픔</div>
                             </a>
                         </li>
-                        <li class="angry"><a href="#"><img src="../static/img/angry.png" alt="angry face">
+                        <li class="angry"><a href="#" onclick = "clickedAngry()" class="feellink"><img src="../static/img/angry.png" alt="angry face">
                                 <div class="angry feelText">화남</div>
                             </a>
                         </li>
                     </ul>
-                </div>
-            </div>
-            <hr class="end-line">
-            <div class="select-music">
-                <h3 class="expWhatToDo">기분에 맞는 노래는?</h3>
-                <div class="search-music">
-                    <form action="methods">
-                        <label for="fname"></label>
-                        <input type="text" id="fname" class="whatToSearch" name="firstname" placeholder="&#xF002; 검색"
-                            autocomplete="off" onkeyup="addMusicList()">
-                    </form>
-                </div>
-                <div class="listOfMusic">
-                    <!--  <div class="album"><img src="https://image.bugsm.co.kr/album/images/500/200196/20019666.jpg"
+                </div> -->
+                <hr class="end-line">
+                <div class="select-music">
+                    <h3 class="expWhatToDo">기분에 맞는 노래는?</h3>
+                    <div class="search-music">
+                        <form action="methods">
+                            <label for="fname"></label>
+                            <input type="text" id="fname" class="whatToSearch" name="firstname"
+                                placeholder="&#xF002; 검색" autocomplete="off" onkeyup="addMusicList()">
+                        </form>
+                    </div>
+                    <div class="favMusic">
+                    </div>
+                    <div class="listOfMusic" style="display: none"></div>
+                        <!--  <div class="album"><img src="https://image.bugsm.co.kr/album/images/500/200196/20019666.jpg"
                             alt="검정치마 everything">
                         <ul class="music-more">
                             <li class="title">EVERYTHING</li>
@@ -115,49 +125,86 @@
                         </ul>
                     </div>
 -->
+                        <!-- <div class="album">
+                            <ul class="music-more">
+                                <li class="title">EVERYTHING</li>
+                                <li class="artist">검정치마 The Black Skirts</li>
+                            </ul>
+                        </div> -->
                 </div>
-            </div>
-            <hr class="end-line">
-            <div class="diary">
-                <h3 class="expWhatToDo">오늘 가장 기억에 남는 일은?</h3>
-                <div class="diarytop">
-                    <div class="date"><label for="input-date"></label>
-                        <input type="date" name="dateofbirth" id="dateofbirth" value="yyyy-mm-dd"></div>
-                    <div class="dontwantbtn"><input type="button" value="기록 안할래요"></div>
-                </div>
-                <div class="diaryMain">
-                    <div class="paper">
-                        <div class="form-group shadow-textarea">
-                            <form action="methods">
-                                <label for="exampleFormControlTextarea6"></label>
-                                <textarea class="form-control z-depth-1" id="exampleFormControlTextarea6" rows="10"
-                                    placeholder="무슨 일이 있었나요?"></textarea>
-                            </form>
-                        </div>
+                <hr class="end-line">
+                <div class="diary">
+                    <h3 class="expWhatToDo">오늘 가장 기억에 남는 일은?</h3>
+                    <div class="diarytop">
+                        <div class="date"><label for="input-date"></label>
+                            <input type="date" name="dateofbirth" id="dateofbirth" value="yyyy-MM-dd"></div>
+                        <div class="dontwantbtn"><input type="button" value="기록 안할래요"></div>
                     </div>
-                    <ul class="palette">
-                        <li class="c1"></li>
-                        <li class="c2"></li>
-                        <li class="c3"></li>
-                        <li class="c4"></li>
-                    </ul>
+                    <div class="diaryMain">
+                        <div class="paper">
+                            <div class="form-group shadow-textarea">
+                                <form action="methods">
+                                    <label for="exampleFormControlTextarea6"></label>
+                                    <textarea class="form-control z-depth-1" id="exampleFormControlTextarea6" rows="10"
+                                        placeholder="무슨 일이 있었나요?"></textarea>
+                                </form>
+                            </div>
+                        </div>
+                        <ul class="palette">
+                            <li class="c1"></li>
+                            <li class="c2"></li>
+                            <li class="c3"></li>
+                            <li class="c4"></li>
+                        </ul>
+                    </div>
                 </div>
-            </div>
-            <div class="finalBtn">
-                <form action="check-record.html">
-                    <input type="submit" value="제출하기" class="btn-enter">
-                </form>
-            </div>
+                <div class="finalBtn">
+                    <form action="check-record.html">
+                        <input type="submit" value="제출하기" class="btn-enter">
+                    </form>
+                </div>
         </section>
         <footer id="footer"></footer>
     </div>
     <!-- 자바스크립트 라이브러리 -->
-    <script src="../js/jquery.min_1.12.4.js"></script>
-    <script src="../js/modernizr-custom.js"></script>
-    <script src="../js/script.js"></script>
-    <script src="../js/ie-checker.js"></script>
+    <script src="https://code.jquery.com/jquery-3.5.1.js"
+        integrity="sha256-QWo7LDvxbWT2tbbQ97B53yJnYU3WhH/C8ycbRAkjPDc=" crossorigin="anonymous"></script>
     <script src="https://use.fontawesome.com/b17215fc37.js"></script>
     <script>
+        $(document).ready(
+            $('.listOfMusic').empty()
+        )
+        $('a.feellink').click(function (e) {
+            e.preventDefault();
+        });
+        $('.album').click(function (e) {
+            e.preventDefault();
+        });
+        // function addMusic(){
+        //     let musicTitle = $("ul.music-more").find('li.title')
+        //     alert(musicTitle.$(this).text())
+        // }
+        $(document).on('click', '.music-more', function () {
+            let text = $(this).find(".title").text();
+            let artist = $(this).find(".artist").text();
+            // alert(text +''+ artist)
+            $('.favMusic').empty();
+            $('.listOfMusic').empty();
+            selectedMusic(text, artist);
+            let setFavMusic = $('.favMusic')
+            if(setFavMusic.length > 0){
+                $('.listOfMusic').css('display', 'none');
+            }            
+        });
+        function selectedMusic(title, artist) {
+            let selectedMusicHtml = `
+                            <ul class="music-more">
+                                <li class="title">${title}</li>
+                                <li class="artist">${artist}</li>
+                            </ul>
+                    `
+            $('.favMusic').append(selectedMusicHtml);
+        }
         function addMusicList() {
             let musicKeyWord = $('.whatToSearch').val()
             $.ajax({
@@ -165,6 +212,7 @@
                 url: 'http://ws.audioscrobbler.com/2.0/?method=track.search&track=' + musicKeyWord + '&api_key=48bee338cada7005923f7ef2dd843dfa&format=json',
                 success: function (response) {
                     $('.listOfMusic').empty();
+                    $('.listOfMusic').css('display', 'block');
                     let musicList = response["results"]["trackmatches"]["track"];
                     for (let i = 0; i < musicList.length; i++) {
                         let albumImg = musicList[i]["image"][0]["#text"]
@@ -175,7 +223,6 @@
                 }
             })
         }
-
         function getMusicHtml(img, title, artist) {
             let musicHtml = `<div class="album"><img src="${img}"
                             alt="">

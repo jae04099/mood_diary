@@ -15,6 +15,14 @@ def login():
 def main():
     return render_template('main.html')
 
+@app.route('/record')
+def record():
+    return render_template('record.html')
+
+@app.route('/checkrecord')
+def checkrecord():
+    return render_template('check-record.html')
+
 
 if __name__ == '__main__':
     app.run('0.0.0.0', port=5000, debug=True)
