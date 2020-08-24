@@ -68,33 +68,33 @@
                 <h3 class="expWhatToDo">오늘 같은 날 들었던 노래는?</h3>
                 <div class="feelings">
                     <ul class="positive">
-                        <li class="satisfy"><a href="musicByEmotion.html"><img src="../static/img/satisfy.png"
+                        <li class="satisfy"><a onclick="satisfy()"><img src="../static/img/satisfy.png"
                                     alt="satisfy face">
                                 <div class="satisfy feelText">편안</div>
                             </a>
                         </li>
-                        <li class="happy"><a href="musicByEmotion.html"><img src="../static/img/smile.png"
+                        <li class="happy"><a onclick="happy()"><img src="../static/img/smile.png"
                                     alt="happy face">
                                 <div class="happy feelText">기쁨</div>
                             </a>
                         </li>
-                        <li class="lovely"><a href="musicByEmotion.html"><img src="../static/img/lovely.png"
+                        <li class="lovely"><a onclick="lovely()"><img src="../static/img/lovely.png"
                                     alt="lovely face">
                                 <div class="lovely feelText">설렘</div>
                             </a>
                         </li>
                     </ul>
                     <ul class="negative">
-                        <li class="unsatisfy"><a href="musicByEmotion.html"><img src="../static/img/disappoint.png"
+                        <li class="unsatisfy"><a onclick="unsatisfy()"><img src="../static/img/disappoint.png"
                                     alt="disappoint face">
                                 <div class="unsatisfy feelText">불안</div>
                             </a>
                         </li>
-                        <li class="sad"><a href="musicByEmotion.html"><img src="../static/img/sad.png" alt="sad face">
+                        <li class="sad"><a onclick="sad()"><img src="../static/img/sad.png" alt="sad face">
                                 <div class="sad feelText">슬픔</div>
                             </a>
                         </li>
-                        <li class="angry"><a href="musicByEmotion.html"><img src="../static/img/angry.png"
+                        <li class="angry"><a onclick="angry()"><img src="../static/img/angry.png"
                                     alt="angry face">
                                 <div class="angry feelText">화남</div>
                             </a>
@@ -119,11 +119,13 @@
     <script>
         $(document).ready(function () {
             // ('#header').empty();
-            let name = window.location.search;
-            let names = name.split('=');
-            nameIn = names[1];
-            let decodeName = decodeURI(nameIn)
-            nameHtml(decodeName);
+            ShowCookie();
+
+            // let name = window.location.search;
+            // let names = name.split('=');
+            // nameIn = names[1];
+            // let decodeName = decodeURI(nameIn)
+            // nameHtml(decodeName);
         })
 
         function nameHtml(name) {
@@ -141,6 +143,59 @@
             window.location.href = '/checkrecord'
         }
 
+        // 감정에 따른 음악 리스트 링크
+        function satisfy(){
+            window.location.href = '/satisfylist'
+        }
+        function happy(){
+            window.location.href = '/happylist'
+        }
+        function lovely(){
+            window.location.href = '/lovelylist'
+        }
+        function unsatisfy(){
+            window.location.href = '/unsatisfylist'
+        }
+        function sad(){
+            window.location.href = '/sadlist'
+        }
+        function angry(){
+            window.location.href = '/angrylist'
+        }
+
+        //cookie 보여주기
+        function ShowCookie()
+		{
+            let divCookie = $(".userName");
+            let cookieFull = document.cookie;
+            let onlyForName = cookieFull.split('=');
+            let onlyName = onlyForName[1];
+            let afterDecode = decodeURI(onlyName)
+
+            nameHtml(afterDecode);
+
+			// if( document.cookie == null || document.cookie == "" )
+			// {
+			// 	divCookie.innerHTML = "";
+			// 	return;
+			// }
+
+			// var listCookie = document.cookie.split( "; " );
+			// var strCookie = "";
+
+			// for( var i = 0; i < listCookie.length; ++i )
+			// {
+			// 	var iPos = listCookie[i].indexOf("=");
+			// 	var strName = listCookie[i].substring(0,iPos);
+			// 	var strValue = listCookie[i].substring(iPos+1);
+			// 	strValue = decodeURIComponent( strValue );
+			// 	strCookie += strName + "=" + strValue + "<br>\n";
+			// }
+
+			// divCookie.innerHTML = strCookie;
+		}
+
+        
     </script>
 </body>
 

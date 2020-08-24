@@ -51,7 +51,7 @@
         <div class="btn">
                 <label for="fname"></label>
                 <input type="text" id="fname" name="firstname" placeholder="이름을 입력해주세요" autocomplete="off">
-                <input type="submit" value="시작하기" class="btn-enter" onclick="sendName()">
+                <input type="submit" value="시작하기" class="btn-enter" onclick="AddCookie()">
         </div>
 
     </section>
@@ -65,11 +65,26 @@
 
 <!-- 자바스크립트 라이브러리 -->
 <script>
-    function sendName(){
-        let name = $('#fname').val()
-        window.location.href = "/main?name="+name
-    }
+    // function sendName(){
+    //     let name = $('#fname').val()
+    // }
 
+        function SetCookie(NameKey, NameValue, ExpDate){
+            var strCookie = "";
+            strCookie = NameKey + '=' + encodeURIComponent(NameValue);
+            document.cookie = strCookie;
+        }
+
+        function AddCookie(){
+            let nameKey = "UserName";
+            let nameValue = $('#fname').val();
+            let date = new Date();
+            date.setDate(date.getDate()+30);
+            let expDate = date.toUTCString();
+            console.log(expDate);
+            SetCookie(nameKey, nameValue, expDate);
+            window.location.href = "/main"
+        }
 </script>
 </body>
 </html>
