@@ -94,8 +94,8 @@ body {
 
 .listOfMusic ul.music-more {
     position: absolute;
-    left: 80px;
-    top: 10px;
+    left: 20px;
+    top: 13px;
 }
 
 .listOfMusic ul.music-more li {

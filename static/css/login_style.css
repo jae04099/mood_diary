@@ -127,6 +127,10 @@ input[type=submit]:hover {
 input[type=submit]:hover .btn {
     padding-top: 30px
 }
+input[type=submit]:focus {
+    border: none;
+    outline: none;
+}
 
 .btn .btn-name {}
 

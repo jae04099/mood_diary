@@ -145,11 +145,19 @@ body {
 button.firstBtn:hover {
     background: #BB6E66;
     border-radius: 20px;
+    transition: 300ms ease-in-out;
 }
 
 button.secondBtn:hover {
     background: #D79867;
     border-radius: 20px;
+    transition: 300ms ease-in-out;
+}
+
+button.firstBtn:focus,
+button.secondBtn:focus {
+    border: none;
+    outline:none;
 }
 
 
@@ -174,6 +182,10 @@ button.secondBtn:hover {
     display: flex;
     flex-direction: row;
     justify-content: space-between;
+}
+
+.listsByMood .feelings ul li {
+    cursor: pointer;
 }
 
 .feelText {
