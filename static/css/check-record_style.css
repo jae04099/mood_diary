@@ -7,7 +7,7 @@ body {
 }
 
 .container {
-    height: 100vh;
+    min-height: 100vh;
     max-width: 360px;
     background-color: #ECECF2;
     margin: 0 auto;
@@ -43,10 +43,11 @@ body {
 
 .key-back {
     font-size: 17px;
+    cursor: pointer;
 }
 
 .key-back a {
-    color: rgba(0, 0, 0, 0.5)
+    color: rgba(0, 0, 0, 0.5);
 }
 
 .key-back a i {
@@ -167,7 +168,7 @@ hr.end-line {
 } */
 
 .listOfMusic ul.music-more {
-    width: 325px;
+    width: 250px;
     margin-left: 20px;
     text-overflow: ellipsis;
     overflow: hidden;

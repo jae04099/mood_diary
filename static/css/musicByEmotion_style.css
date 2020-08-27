@@ -44,6 +44,7 @@ body {
 
 .key-back {
     font-size: 17px;
+    cursor: pointer;
 }
 
 .key-back a {
@@ -70,14 +71,12 @@ body {
     font-size: 20px;
     font-family: 'Noto Sans KR';
     font-weight: 600;
-
     color: rgba(0, 0, 0, 0.5);
 }
 .greeting h3 > span {
     color: rgba(0, 0, 0, 0.9);
 }
 
-/*music-list*/
 /*music list*/
 .listOfMusic {
     position: relative;
@@ -94,8 +93,8 @@ body {
 
 .listOfMusic ul.music-more {
     position: absolute;
-    left: 80px;
-    top: 10px;
+    left: 20px;
+    top: 13px;
 }
 
 .listOfMusic ul.music-more li {

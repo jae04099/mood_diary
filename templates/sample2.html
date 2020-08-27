@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
+</head>
+
+<body>
+    <div id="putName">
+        <h1>안녕하세요<p></p>님!</h1>
+    </div>
+    <script>
+        $(window).ready(function(){
+            $('h1').empty()
+            ShowCookie();
+        }
+        )
+
+        function ShowCookie() {
+            let cookieFull = document.cookie;
+            alert(cookieFull)
+            let onlyForName = cookieFull.split('=');
+            let onlyName = onlyForName[1];
+            let afterDecode = decodeURI(onlyName)
+            nameHtml(afterDecode);
+        }
+
+        function nameHtml(userName) {
+            let nameHtml = `<h1>안녕하세요<p>${userName}</p>님!</h1>`
+            $('#putName').append(nameHtml)
+        }
+    </script>
+</body>
+
+</html>

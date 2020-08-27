@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
+</head>
+
+<body>
+    <input id="writeUserName" type="text" placeholder="이름을 입력해주세요">
+    <input type="submit" onclick="addCookie()" value="제출하기">
+    <script>
+        function setCookie(NameKey, NameValue, ExpDate) {
+            let strCookie = "";
+            strCookie = NameKey + '=' + encodeURIComponent(NameValue) + "; expires=" + ExpDate;
+            document.cookie = strCookie;
+        }
+        function addCookie() {
+            let nameKey = "UserName";	//key값은 UserName으로 한다. 이건 변동 없음.
+            let nameValue = $('#writeUserName').val();	//입력한 값 가져옴
+            let date = new Date();	//쿠키를 생성한 그 날의 날짜, 시간 생성
+            date.setDate(date.getDate() + 30);	//getDate()로 일 만 가져오고 거기서 30일을 더한 값을 date로 정함
+            let expDate = date.toUTCString();	//시간을 문자열로
+            setCookie(nameKey, nameValue, expDate);	//아까 만들었던 쿠키 틀에 넣는다
+            window.location.href = "/showcookie"	//그리고 다음 페이지로 간다
+        }
+    </script>
+</body>
+
+</html>

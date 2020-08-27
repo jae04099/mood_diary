@@ -18,7 +18,14 @@
     <link rel="stylesheet" href="../static/css/fontawesome.min.css">
 
     <!--파비콘-->
-
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+    <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
+    <meta name="msapplication-TileColor" content="#da532c">
+    <meta name="theme-color" content="#ffffff">
+    <link rel="shortcut icon" href="/static/img/favicon-32x32 (2).png">
+    <link rel="stylesheet" href="/static/img/favicon (2).ico">
     <!--웹폰트-->
     <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@100;300;400;500;700;900&display=swap"
         rel="stylesheet">
@@ -48,54 +55,51 @@
         <section id="body">
             <div class="boxs">
                 <div class="box1">
-                <button class="firstBtn" onclick="writing()">
-                <div class="record_day box">
-                    <div class="saying">오늘을<br><span>기록하기</span></div>
-                    <i class="fa fa-pencil-square-o" aria-hidden="true"></i>
+                    <button class="firstBtn" onclick="writing()">
+                        <div class="record_day box">
+                            <div class="saying">오늘을<br><span>기록하기</span></div>
+                            <i class="fa fa-pencil-square-o" aria-hidden="true"></i>
+                        </div>
+                    </button>
                 </div>
-                </button>
-            </div>
-            <div class="box2">
-                <button class="secondBtn" onclick="check()">
-                <div class="acknow_day box">
-                    <div class="saying">기록<br><span>확인하기</span></div>
-                    <i class="fa fa-search" aria-hidden="true"></i>
+                <div class="box2">
+                    <button class="secondBtn" onclick="check()">
+                        <div class="acknow_day box">
+                            <div class="saying">기록<br><span>확인하기</span></div>
+                            <i class="fa fa-search" aria-hidden="true"></i>
+                        </div>
+                    </button>
                 </div>
-                </button>
-            </div>
             </div>
             <div class="listsByMood">
                 <h3 class="expWhatToDo">오늘 같은 날 들었던 노래는?</h3>
                 <div class="feelings">
                     <ul class="positive">
-                        <li class="satisfy"><a href="musicByEmotion.html"><img src="../static/img/satisfy.png"
+                        <li class="satisfy"><a onclick="satisfy()"><img src="../static/img/satisfy.png"
                                     alt="satisfy face">
                                 <div class="satisfy feelText">편안</div>
                             </a>
                         </li>
-                        <li class="happy"><a href="musicByEmotion.html"><img src="../static/img/smile.png"
-                                    alt="happy face">
+                        <li class="happy"><a onclick="happy()"><img src="../static/img/smile.png" alt="happy face">
                                 <div class="happy feelText">기쁨</div>
                             </a>
                         </li>
-                        <li class="lovely"><a href="musicByEmotion.html"><img src="../static/img/lovely.png"
-                                    alt="lovely face">
+                        <li class="lovely"><a onclick="lovely()"><img src="../static/img/lovely.png" alt="lovely face">
                                 <div class="lovely feelText">설렘</div>
                             </a>
                         </li>
                     </ul>
                     <ul class="negative">
-                        <li class="unsatisfy"><a href="musicByEmotion.html"><img src="../static/img/disappoint.png"
+                        <li class="unsatisfy"><a onclick="unsatisfy()"><img src="../static/img/disappoint.png"
                                     alt="disappoint face">
                                 <div class="unsatisfy feelText">불안</div>
                             </a>
                         </li>
-                        <li class="sad"><a href="musicByEmotion.html"><img src="../static/img/sad.png" alt="sad face">
+                        <li class="sad"><a onclick="sad()"><img src="../static/img/sad.png" alt="sad face">
                                 <div class="sad feelText">슬픔</div>
                             </a>
                         </li>
-                        <li class="angry"><a href="musicByEmotion.html"><img src="../static/img/angry.png"
-                                    alt="angry face">
+                        <li class="angry"><a onclick="angry()"><img src="../static/img/angry.png" alt="angry face">
                                 <div class="angry feelText">화남</div>
                             </a>
                         </li>
@@ -113,17 +117,17 @@
 
     <!-- 자바스크립트 라이브러리 -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
-    <script src="../js/modernizr-custom.js"></script>
-    <script src="../js/ie-checker.js"></script>
     <script src="https://use.fontawesome.com/b17215fc37.js"></script>
     <script>
         $(document).ready(function () {
             // ('#header').empty();
-            let name = window.location.search;
-            let names = name.split('=');
-            nameIn = names[1];
-            let decodeName = decodeURI(nameIn)
-            nameHtml(decodeName);
+            ShowCookie();
+
+            // let name = window.location.search;
+            // let names = name.split('=');
+            // nameIn = names[1];
+            // let decodeName = decodeURI(nameIn)
+            // nameHtml(decodeName);
         })
 
         function nameHtml(name) {
@@ -137,9 +141,61 @@
         function writing() {
             window.location.href = '/record'
         }
-        function check(){
+        function check() {
             window.location.href = '/checkrecord'
         }
+
+        // 감정에 따른 음악 리스트 링크
+        function satisfy() {
+            window.location.href = '/satisfylist'
+        }
+        function happy() {
+            window.location.href = '/happylist'
+        }
+        function lovely() {
+            window.location.href = '/lovelylist'
+        }
+        function unsatisfy() {
+            window.location.href = '/unsatisfylist'
+        }
+        function sad() {
+            window.location.href = '/sadlist'
+        }
+        function angry() {
+            window.location.href = '/angrylist'
+        }
+
+        //cookie 보여주기
+        function ShowCookie() {
+            let divCookie = $(".userName");
+            let cookieFull = document.cookie;
+            let onlyForName = cookieFull.split('=');
+            let onlyName = onlyForName[1];
+            let afterDecode = decodeURI(onlyName)
+
+            nameHtml(afterDecode);
+
+            // if( document.cookie == null || document.cookie == "" )
+            // {
+            // 	divCookie.innerHTML = "";
+            // 	return;
+            // }
+
+            // var listCookie = document.cookie.split( "; " );
+            // var strCookie = "";
+
+            // for( var i = 0; i < listCookie.length; ++i )
+            // {
+            // 	var iPos = listCookie[i].indexOf("=");
+            // 	var strName = listCookie[i].substring(0,iPos);
+            // 	var strValue = listCookie[i].substring(iPos+1);
+            // 	strValue = decodeURIComponent( strValue );
+            // 	strCookie += strName + "=" + strValue + "<br>\n";
+            // }
+
+            // divCookie.innerHTML = strCookie;
+        }
+
 
     </script>
 </body>

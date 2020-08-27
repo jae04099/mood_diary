@@ -15,6 +15,8 @@
     <link rel="stylesheet" href="../static/css/reset.css">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" />
     <!--파비콘-->
+    <link rel="shortcut icon" href="/static/img/favicon-32x32 (2).png">
+    <link rel="stylesheet" href="/static/img/favicon (2).ico">
     <!--웹폰트-->
     <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@100;300;400;500;700;900&display=swap"
         rel="stylesheet">
@@ -30,7 +32,7 @@
     <div class="container">
         <div id="top">
             <div class="key-back">
-                <a href="main.html"><i class="fa fa-arrow-left" aria-hidden="true"></i>
+                <a onclick="goBack()"><i class="fa fa-arrow-left" aria-hidden="true"></i>
                     메인으로</a>
             </div>
         </div>
@@ -48,32 +50,32 @@
                         <input checked="checked" id="satisfy" type="radio" name="feeling-img" value="편안" />
                         <label class="varFeel satisfy" for="satisfy">
                             <img src="../static/img/satisfy.png" alt="satisfy" style="    margin-right: 20px;
-                            ">
+                            "><p>편안</p>
                         </label>
                         <input id="happy" type="radio" name="feeling-img" value="기쁨" />
                         <label class="varFeel happy" for="happy">
                             <img src="../static/img/smile.png" alt="happy" style="    margin-right: 20px;
-                            ">
+                            "><p>기쁨</p>
                         </label>
                         <input id="lovely" type="radio" name="feeling-img" value="설렘" />
                         <label class="varFeel lovely" for="lovely">
-                            <img src="../static/img/lovely.png" alt="lovely">
+                            <img src="../static/img/lovely.png" alt="lovely"><p>설렘</p>
                         </label>
                     </div>
                     <div class="negative">
                         <input id="unsatisfy" type="radio" name="feeling-img" value="불안" />
                         <label class="varFeel unsatisfy" for="unsatisfy">
                             <img src="../static/img/disappoint.png" alt="unsatisfy" style="    margin-right: 20px;
-                            ">
+                            "><p>불안</p>
                         </label>
                         <input id="sad" type="radio" name="feeling-img" value="슬픔" />
                         <label class="varFeel sad" for="sad">
                             <img src="../static/img/sad.png" alt="sad" style="    margin-right: 20px;
-                            ">
+                            "><p>슬픔</p>
                         </label>
                         <input id="angry" type="radio" name="feeling-img" value="화남" />
                         <label class="varFeel angry" for="angry">
-                            <img src="../static/img/angry.png" alt="angry">
+                            <img src="../static/img/angry.png" alt="angry"><p>화남</p>
                         </label>
                     </div>
                 </div>
@@ -106,7 +108,7 @@
                         </li>
                     </ul>
                 </div> -->
-                <hr class="end-line">
+                <!-- <hr class="end-line"> -->
                 <div class="select-music">
                     <h3 class="expWhatToDo">기분에 맞는 노래는?</h3>
                     <div class="search-music">
@@ -119,42 +121,21 @@
                     <div class="favMusic">
                     </div>
                     <div class="listOfMusic" style="display: none"></div>
-                        <!--  <div class="album"><img src="https://image.bugsm.co.kr/album/images/500/200196/20019666.jpg"
+                    <!--  <div class="album"><img src="https://image.bugsm.co.kr/album/images/500/200196/20019666.jpg"
                             alt="검정치마 everything">
                         <ul class="music-more">
                             <li class="title">EVERYTHING</li>
                             <li class="artist">검정치마 The Black Skirts</li>
                         </ul>
-                    </div>
-                    <div class="album"><img src="https://image.bugsm.co.kr/album/images/500/200196/20019666.jpg"
-                            alt="검정치마 everything">
-                        <ul class="music-more">
-                            <li class="title">EVERYTHING</li>
-                            <li class="artist">검정치마 The Black Skirts</li>
-                        </ul>
-                    </div>
-                    <div class="album"><img src="https://image.bugsm.co.kr/album/images/500/200196/20019666.jpg"
-                            alt="검정치마 everything">
-                        <ul class="music-more">
-                            <li class="title">EVERYTHING</li>
-                            <li class="artist">검정치마 The Black Skirts</li>
-                        </ul>
-                    </div>
--->
-                        <!-- <div class="album">
-                            <ul class="music-more">
-                                <li class="title">EVERYTHING</li>
-                                <li class="artist">검정치마 The Black Skirts</li>
-                            </ul>
-                        </div> -->
+                    </div>-->
                 </div>
-                <hr class="end-line">
+                <hr class="end-line" style="margin-top: 75px;">
                 <div class="diary">
                     <h3 class="expWhatToDo">오늘 가장 기억에 남는 일은?</h3>
                     <div class="diarytop">
                         <div class="date"><label for="input-date"></label>
                             <input type="date" name="dateofbirth" id="dateofbirth" value="yyyy-MM-dd"></div>
-                        <div class="dontwantbtn"><input type="button" value="기록 안할래요"></div>
+                        <div class="dontwantbtn"><input type="button" class="dontBtn" value="기록 안할래요"></div>
                     </div>
                     <div class="diaryMain">
                         <div class="paper">
@@ -175,9 +156,9 @@
                     </div>
                 </div>
                 <div class="finalBtn">
-                    <form action=''>
+                
                         <input type="submit" onclick="makeList()" value="제출하기" class="btn-enter">
-                    </form>
+                    
                 </div>
         </section>
         <footer id="footer"></footer>
@@ -187,6 +168,39 @@
         integrity="sha256-QWo7LDvxbWT2tbbQ97B53yJnYU3WhH/C8ycbRAkjPDc=" crossorigin="anonymous"></script>
     <script src="https://use.fontawesome.com/b17215fc37.js"></script>
     <script>
+        // goback 함수
+        function goBack() {
+            window.location.href = "/main"
+        }
+
+        //팔레트 색 변환 함수
+        $('li.c1').click(function (e) {
+            e.preventDefault();
+            $('.shadow-textarea textarea').css('background', '#D9ADAD')
+            $('.shadow-textarea textarea').css('transition', '200ms ease')
+        })
+        $('li.c2').click(function (e) {
+            e.preventDefault();
+            $('.shadow-textarea textarea').css({'background': '#89C9B8'}, 1000)
+        })
+        $('li.c3').click(function (e) {
+            e.preventDefault();
+            $('.shadow-textarea textarea').css('background', '#84A9AC')
+        })
+        $('li.c4').click(function (e) {
+            e.preventDefault();
+            $('.shadow-textarea textarea').css('background', '#DDDDDD')
+        })
+
+        //기록안할래요 버튼
+            $(".dontBtn").click(function () {
+                $(".diaryMain").toggle("slow", function(){
+                    $(this).find('input').attr('value', '기록 할래요')
+                });
+            });
+
+
+
         $(document).ready(
             $('.listOfMusic').empty()
         )
@@ -205,9 +219,9 @@
             $('.listOfMusic').empty();
             selectedMusic(text, artist);
             let setFavMusic = $('.favMusic')
-            if(setFavMusic.length > 0){
+            if (setFavMusic.length > 0) {
                 $('.listOfMusic').css('display', 'none');
-            }            
+            }
         });
         function selectedMusic(title, artist) {
             let selectedMusicHtml = `
@@ -246,27 +260,27 @@
                     </div>`
             $('.listOfMusic').append(musicHtml)
         }
-// db에 기록 저장하는 함수
+        // db에 기록 저장하는 함수
 
-function makeList(){
-        let feelOne = $("input[name=feeling-img]:checked").val();
-        let musicOneTitle = $(".favMusic .music-more").find("li.title").text();
-        let musicOneArtist = $(".favMusic .music-more").find("li.artist").text();
-        let dateOne = $("input[type=date]").val();
-        let diaryOne = $("#exampleFormControlTextarea6").val();
-        
-        $.ajax({
-            type: "POST",
-            url: "/record",
-            data: {date: dateOne, feel: feelOne, musicTitle: musicOneTitle, musicArtist: musicOneArtist, diary: diaryOne},
-            success: function (response) {
-                if(response["result"] == "success"){
-                    alert(response["msg"]);
-                    window.location.href = "/main";
+        function makeList() {
+            let feelOne = $("input[name=feeling-img]:checked").val();
+            let musicOneTitle = $(".favMusic .music-more").find("li.title").text();
+            let musicOneArtist = $(".favMusic .music-more").find("li.artist").text();
+            let dateOne = $("input[type=date]").val();
+            let diaryOne = $("#exampleFormControlTextarea6").val();
+
+            $.ajax({
+                type: "POST",
+                url: "/record",
+                data: { date: dateOne, feel: feelOne, musicTitle: musicOneTitle, musicArtist: musicOneArtist, diary: diaryOne },
+                success: function (response) {
+                    if (response["result"] == "success") {
+                        alert(response["msg"]);
+                        window.location.href = "/main";
+                    }
                 }
-            }
-        })
-}
+            })
+        }
 
 
     </script>

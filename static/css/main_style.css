@@ -68,7 +68,10 @@ body {
     display: flex;
     justify-content: space-around;
     position: relative;
+}
 
+.box {
+    position: relative;
 }
 
 .boxs button {
@@ -88,30 +91,16 @@ body {
 
 }
 
-.box {
-}
-
 .saying {
     padding: 20px;
     color: #ffffff;
     font-size: 17px;
     text-align: left;
+    margin-bottom: 60px;
 }
 
 .saying span {
  font-weight: 600;
-}
-
-.record_day {
-    top: 0;
-    left: 10px;
-    position: absolute;
-}
-
-.acknow_day {
-    top: 0;
-    left: 190px;
-    position: absolute;
 }
 
 .record_day > i,
@@ -120,36 +109,26 @@ body {
     color: #ffffff;
     font-size: 25px;
     position: absolute;
-    bottom: -30px;
-    right: -30px;
+    bottom: -40px;
+    right: 20px;
 }
-
-.record_day > i {
-
-}
-
-.acknow_day > i {
-
-}
-
-/* .record_day.box {
-    position: relative;
-    transition: 30ms;
-}
-
-.acknow_day.box {
-    position: relative;
-    transition: 30ms;
-} */
 
 button.firstBtn:hover {
     background: #BB6E66;
     border-radius: 20px;
+    transition: 300ms ease-in-out;
 }
 
 button.secondBtn:hover {
     background: #D79867;
     border-radius: 20px;
+    transition: 300ms ease-in-out;
+}
+
+button.firstBtn:focus,
+button.secondBtn:focus {
+    border: none;
+    outline:none;
 }
 
 
@@ -166,7 +145,7 @@ button.secondBtn:hover {
 }
 
 .listsByMood .feelings {
-    margin: 30px 50px 0 50px;
+    margin: 30px 40px 0 40px;
     text-align: center;
 }
 
@@ -174,6 +153,10 @@ button.secondBtn:hover {
     display: flex;
     flex-direction: row;
     justify-content: space-between;
+}
+
+.listsByMood .feelings ul li {
+    cursor: pointer;
 }
 
 .feelText {
