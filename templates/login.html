@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 <!DOCTYPE html>
 <html lang="ko">
 
@@ -99,4 +100,95 @@
     </script>
 </body>
 
+=======
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, width=device-width">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <meta name="author" content="Adore_voy">
+    <meta name="description" content="감정을 음악으로 기록하는 기록집 입니다.">
+    <meta name="keywords" content="음악, 음악기록, 일기, 다이어리, mood diary, feeling diary, 감정 기록장, 감정 플레이리스트, 감정 음악">
+    <title>감정 플레이리스트</title>
+
+    <!--css-->
+    <link rel="stylesheet" href="../static/css/reset.css">
+    <link rel="stylesheet" href="../static/css/login_style.css">
+
+    <!--파비콘-->
+
+    <!--웹폰트-->
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@100;300;400;500;700;900&display=swap"
+          rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Gothic+A1:wght@100;200;300;400;500;600;700;800;900&display=swap"
+          rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@100;300;400;500;700;900&display=swap"
+          rel="stylesheet">
+
+    <!--font-family: 'Gothic A1', sans-serif;-->
+<!-- scripts -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script><script src="../js/modernizr-custom.js"></script>
+<script src="../js/ie-checker.js"></script>
+</head>
+<body>
+
+<div class="container">
+    <div id="top" class="keyback">
+
+    </div>
+    <header id="header">
+        <div class="greeting">
+            <h1>어서오세요</h1>
+            <h3>음악일기장 입니다!</h3>
+        </div>
+    </header>
+    <!--//header-->
+
+    <section id="body">
+        <div class="illust">
+            <a href="#" class="ir_su">main page illust</a>
+            <img class="illust-png" src="../static/img/mainillust.png" alt="main page illust">
+        </div>
+        <div class="btn">
+                <label for="fname"></label>
+                <input type="text" id="fname" name="firstname" placeholder="이름을 입력해주세요" autocomplete="off">
+                <input type="submit" value="시작하기" class="btn-enter" onclick="AddCookie()">
+        </div>
+
+    </section>
+    <!--//body-->
+
+    <footer id="footer">
+<!--        <a href="https://www.freepik.com/vectors/character">Character vector created by freepik - www.freepik.com</a>-->
+    </footer>
+    <!--//footer-->
+</div>
+
+<!-- 자바스크립트 라이브러리 -->
+<script>
+    // function sendName(){
+    //     let name = $('#fname').val()
+    // }
+
+        function SetCookie(NameKey, NameValue, ExpDate){
+            var strCookie = "";
+            strCookie = NameKey + '=' + encodeURIComponent(NameValue);
+            document.cookie = strCookie;
+        }
+
+        function AddCookie(){
+            let nameKey = "UserName";
+            let nameValue = $('#fname').val();
+            let date = new Date();
+            date.setDate(date.getDate()+30);
+            let expDate = date.toUTCString();
+            console.log(expDate);
+            SetCookie(nameKey, nameValue, expDate);
+            window.location.href = "/main"
+        }
+</script>
+</body>
+>>>>>>> c6be50bd8cb06ac0f06256e0d8f0ad4d301b75eb
 </html>

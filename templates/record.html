@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 <!DOCTYPE html>
 <html lang="ko">
 
@@ -286,4 +287,292 @@
     </script>
 </body>
 
+=======
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+        content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, width=device-width">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <meta name="author" content="Adore_voy">
+    <meta name="description" content="감정을 음악으로 기록하는 기록집 입니다.">
+    <meta name="keywords" content="음악, 음악기록, 일기, 다이어리, mood diary, feeling diary, 감정 기록장, 감정 플레이리스트, 감정 음악">
+    <title>감정 플레이리스트</title>
+    <!--css-->
+    <link rel="stylesheet" href="../static/css/record_style.css">
+    <link rel="stylesheet" href="../static/css/reset.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" />
+    <!--파비콘-->
+    <!--웹폰트-->
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@100;300;400;500;700;900&display=swap"
+        rel="stylesheet">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Gothic+A1:wght@100;200;300;400;500;600;700;800;900&display=swap"
+        rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@100;300;400;500;700;900&display=swap"
+        rel="stylesheet">
+    <!--font-family: 'Gothic A1', sans-serif;-->
+</head>
+
+<body class="clearfix">
+    <div class="container">
+        <div id="top">
+            <div class="key-back">
+                <a onclick="goBack()"><i class="fa fa-arrow-left" aria-hidden="true"></i>
+                    메인으로</a>
+            </div>
+        </div>
+        <header id="header">
+            <div class="greeting">
+                <h1>감정</h1>
+                <h3>기록하기</h3>
+            </div>
+        </header>
+        <section id="body">
+            <div class="listsByMood">
+                <h3 class="expWhatToDo">오늘 기분 어때요?</h3>
+                <div class="feelings">
+                    <div class="positive">
+                        <input checked="checked" id="satisfy" type="radio" name="feeling-img" value="편안" />
+                        <label class="varFeel satisfy" for="satisfy">
+                            <img src="../static/img/satisfy.png" alt="satisfy" style="    margin-right: 20px;
+                            "><p>편안</p>
+                        </label>
+                        <input id="happy" type="radio" name="feeling-img" value="기쁨" />
+                        <label class="varFeel happy" for="happy">
+                            <img src="../static/img/smile.png" alt="happy" style="    margin-right: 20px;
+                            "><p>기쁨</p>
+                        </label>
+                        <input id="lovely" type="radio" name="feeling-img" value="설렘" />
+                        <label class="varFeel lovely" for="lovely">
+                            <img src="../static/img/lovely.png" alt="lovely"><p>설렘</p>
+                        </label>
+                    </div>
+                    <div class="negative">
+                        <input id="unsatisfy" type="radio" name="feeling-img" value="불안" />
+                        <label class="varFeel unsatisfy" for="unsatisfy">
+                            <img src="../static/img/disappoint.png" alt="unsatisfy" style="    margin-right: 20px;
+                            "><p>불안</p>
+                        </label>
+                        <input id="sad" type="radio" name="feeling-img" value="슬픔" />
+                        <label class="varFeel sad" for="sad">
+                            <img src="../static/img/sad.png" alt="sad" style="    margin-right: 20px;
+                            "><p>슬픔</p>
+                        </label>
+                        <input id="angry" type="radio" name="feeling-img" value="화남" />
+                        <label class="varFeel angry" for="angry">
+                            <img src="../static/img/angry.png" alt="angry"><p>화남</p>
+                        </label>
+                    </div>
+                </div>
+                <!-- <ul class="positive">
+                        <li class="satisfy"><a href="#" onclick = "clickedSatisfy()" class="feellink"><img src="../static/img/satisfy.png" alt="satisfy face">
+                                <div class="satisfy feelText">편안</div>
+                            </a>
+                        </li>
+                        <li class="happy"><a href="#" onclick = "clickedHappy()" class="feellink"><img src="../static/img/smile.png" alt="happy face">
+                                <div class="happy feelText">기쁨</div>
+                            </a>
+                        </li>
+                        <li class="lovely"><a href="#" onclick = "clickedLovely()" class="feellink"><img src="../static/img/lovely.png" alt="lovely face">
+                                <div class="lovely feelText">설렘</div>
+                            </a>
+                        </li>
+                    </ul>
+                    <ul class="negative">
+                        <li class="unsatisfy"><a href="#" onclick = "clickedUnsatisfy()" class="feellink"><img src="../static/img/disappoint.png" alt="disappoint face">
+                                <div class="unsatisfy feelText">불안</div>
+                            </a>
+                        </li>
+                        <li class="sad"><a href="#" onclick = "clickedSad()" class="feellink"><img src="../static/img/sad.png" alt="sad face">
+                                <div class="sad feelText">슬픔</div>
+                            </a>
+                        </li>
+                        <li class="angry"><a href="#" onclick = "clickedAngry()" class="feellink"><img src="../static/img/angry.png" alt="angry face">
+                                <div class="angry feelText">화남</div>
+                            </a>
+                        </li>
+                    </ul>
+                </div> -->
+                <!-- <hr class="end-line"> -->
+                <div class="select-music">
+                    <h3 class="expWhatToDo">기분에 맞는 노래는?</h3>
+                    <div class="search-music">
+                        <form action="methods">
+                            <label for="fname"></label>
+                            <input type="text" id="fname" class="whatToSearch" name="firstname"
+                                placeholder="&#xF002; 검색" autocomplete="off" onkeyup="addMusicList()">
+                        </form>
+                    </div>
+                    <div class="favMusic">
+                    </div>
+                    <div class="listOfMusic" style="display: none"></div>
+                    <!--  <div class="album"><img src="https://image.bugsm.co.kr/album/images/500/200196/20019666.jpg"
+                            alt="검정치마 everything">
+                        <ul class="music-more">
+                            <li class="title">EVERYTHING</li>
+                            <li class="artist">검정치마 The Black Skirts</li>
+                        </ul>
+                    </div>-->
+                </div>
+                <hr class="end-line">
+                <div class="diary">
+                    <h3 class="expWhatToDo">오늘 가장 기억에 남는 일은?</h3>
+                    <div class="diarytop">
+                        <div class="date"><label for="input-date"></label>
+                            <input type="date" name="dateofbirth" id="dateofbirth" value="yyyy-MM-dd"></div>
+                        <div class="dontwantbtn"><input type="button" class="dontBtn" value="기록 안할래요"></div>
+                    </div>
+                    <div class="diaryMain">
+                        <div class="paper">
+                            <div class="form-group shadow-textarea">
+                                <form action="methods">
+                                    <label for="exampleFormControlTextarea6"></label>
+                                    <textarea class="form-control z-depth-1" id="exampleFormControlTextarea6" rows="10"
+                                        placeholder="무슨 일이 있었나요?"></textarea>
+                                </form>
+                            </div>
+                        </div>
+                        <ul class="palette">
+                            <li class="c1"></li>
+                            <li class="c2"></li>
+                            <li class="c3"></li>
+                            <li class="c4"></li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="finalBtn">
+                    <form action=''>
+                        <input type="submit" onclick="makeList()" value="제출하기" class="btn-enter">
+                    </form>
+                </div>
+        </section>
+        <footer id="footer"></footer>
+    </div>
+    <!-- 자바스크립트 라이브러리 -->
+    <script src="https://code.jquery.com/jquery-3.5.1.js"
+        integrity="sha256-QWo7LDvxbWT2tbbQ97B53yJnYU3WhH/C8ycbRAkjPDc=" crossorigin="anonymous"></script>
+    <script src="https://use.fontawesome.com/b17215fc37.js"></script>
+    <script>
+        // goback 함수
+        function goBack() {
+            window.location.href = "/main"
+        }
+
+        //팔레트 색 변환 함수
+        $('li.c1').click(function (e) {
+            e.preventDefault();
+            $('.shadow-textarea textarea').css('background', '#D9ADAD')
+            $('.shadow-textarea textarea').css('transition', '200ms ease')
+        })
+        $('li.c2').click(function (e) {
+            e.preventDefault();
+            $('.shadow-textarea textarea').css({'background': '#89C9B8'}, 1000)
+        })
+        $('li.c3').click(function (e) {
+            e.preventDefault();
+            $('.shadow-textarea textarea').css('background', '#84A9AC')
+        })
+        $('li.c4').click(function (e) {
+            e.preventDefault();
+            $('.shadow-textarea textarea').css('background', '#DDDDDD')
+        })
+
+        //기록안할래요 버튼
+            $(".dontBtn").click(function () {
+                $(".diaryMain").toggle("slow", function(){
+                    $(this).find('input').attr('value', '기록 할래요')
+                });
+            });
+
+
+
+        $(document).ready(
+            $('.listOfMusic').empty()
+        )
+        $('a.feellink').click(function (e) {
+            e.preventDefault();
+        });
+        $('.album').click(function (e) {
+            e.preventDefault();
+        });
+
+        $(document).on('click', '.music-more', function () {
+            let text = $(this).find(".title").text();
+            let artist = $(this).find(".artist").text();
+            // alert(text +''+ artist)
+            $('.favMusic').empty();
+            $('.listOfMusic').empty();
+            selectedMusic(text, artist);
+            let setFavMusic = $('.favMusic')
+            if (setFavMusic.length > 0) {
+                $('.listOfMusic').css('display', 'none');
+            }
+        });
+        function selectedMusic(title, artist) {
+            let selectedMusicHtml = `
+                            <ul class="music-more">
+                                <li class="title">${title}</li>
+                                <li class="artist">${artist}</li>
+                            </ul>
+                    `
+            $('.favMusic').append(selectedMusicHtml);
+        }
+        function addMusicList() {
+            let musicKeyWord = $('.whatToSearch').val()
+            $.ajax({
+                type: 'GET',
+                url: 'http://ws.audioscrobbler.com/2.0/?method=track.search&track=' + musicKeyWord + '&api_key=48bee338cada7005923f7ef2dd843dfa&format=json',
+                success: function (response) {
+                    $('.listOfMusic').empty();
+                    $('.listOfMusic').css('display', 'block');
+                    let musicList = response["results"]["trackmatches"]["track"];
+                    for (let i = 0; i < musicList.length; i++) {
+                        let albumImg = musicList[i]["image"][0]["#text"]
+                        let albumTitle = musicList[i]["name"]
+                        let albumArtist = musicList[i]["artist"]
+                        getMusicHtml(albumImg, albumTitle, albumArtist)
+                    }
+                }
+            })
+        }
+        function getMusicHtml(img, title, artist) {
+            let musicHtml = `<div class="album"><img src="${img}"
+                            alt="">
+                        <ul class="music-more">
+                            <li class="title">${title}</li>
+                            <li class="artist">${artist}</li>
+                        </ul>
+                    </div>`
+            $('.listOfMusic').append(musicHtml)
+        }
+        // db에 기록 저장하는 함수
+
+        function makeList() {
+            let feelOne = $("input[name=feeling-img]:checked").val();
+            let musicOneTitle = $(".favMusic .music-more").find("li.title").text();
+            let musicOneArtist = $(".favMusic .music-more").find("li.artist").text();
+            let dateOne = $("input[type=date]").val();
+            let diaryOne = $("#exampleFormControlTextarea6").val();
+
+            $.ajax({
+                type: "POST",
+                url: "/record",
+                data: { date: dateOne, feel: feelOne, musicTitle: musicOneTitle, musicArtist: musicOneArtist, diary: diaryOne },
+                success: function (response) {
+                    if (response["result"] == "success") {
+                        alert(response["msg"]);
+                        window.location.href = "/main";
+                    }
+                }
+            })
+        }
+
+
+    </script>
+</body>
+
+>>>>>>> c6be50bd8cb06ac0f06256e0d8f0ad4d301b75eb
 </html>

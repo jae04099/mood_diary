@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 /*전체 레이아웃 틀*/
 body {
     min-width: 320px;
@@ -119,4 +120,128 @@ body {
 .listOfMusic .album img {
     width: 50px;
     height: 50px;
+=======
+/*전체 레이아웃 틀*/
+body {
+    min-width: 320px;
+    min-height: 100%;
+    max-height: fit-content;
+    background-color: #ffffff;
+    margin: 0 auto;
+}
+
+.container {
+    max-width: 360px;
+    background-color: #ECECF2;
+    margin: 0 auto;
+    padding: 0 16px;
+}
+
+#top {
+    height: 0px;
+    padding-top: 30px;
+    width: 100%;
+    /*background-color: skyblue;*/
+}
+
+#header {
+    padding-top: 50px;
+    height: 70px;
+    /*background-color: #888999;*/
+
+}
+
+#body {
+    min-height: 100vh;
+    height: fit-content;
+    width: 100%;
+    padding-top: 30px;
+    /*background-color: #777777;*/
+}
+
+#footer {
+    padding: 20px;
+}
+
+/*top*/
+
+.key-back {
+    font-size: 17px;
+}
+
+.key-back a {
+    color: rgba(0, 0, 0, 0.5)
+}
+
+.key-back a i {
+    color: rgba(0, 0, 0, 0.5)
+}
+
+
+/*header*/
+.greeting {
+}
+
+.greeting h1 {
+    font-size: 34px;
+    font-family: 'Noto Sans KR';
+    font-weight: 700;
+    color: rgba(0, 0, 0, 0.7);
+}
+
+.greeting h3 {
+    font-size: 20px;
+    font-family: 'Noto Sans KR';
+    font-weight: 600;
+
+    color: rgba(0, 0, 0, 0.5);
+}
+.greeting h3 > span {
+    color: rgba(0, 0, 0, 0.9);
+}
+
+/*music-list*/
+/*music list*/
+.listOfMusic {
+    position: relative;
+    margin: 0 auto;
+    width: 300px;
+    height: 50px;
+    background: #F7F5F7;
+    box-shadow: 0px 1px 4px rgba(0, 0, 0, 0.25);
+    border-radius: 10px;
+    padding: 12px 14px;
+    margin-top: 10px;
+
+}
+
+.listOfMusic ul.music-more {
+    position: absolute;
+    left: 20px;
+    top: 13px;
+}
+
+.listOfMusic ul.music-more li {
+}
+
+.listOfMusic ul.music-more li.title {
+    font-weight: 600;
+    font-size: 17px;
+    color: rgba(0, 0, 0, 0.9);
+}
+
+.listOfMusic ul.music-more li.artist {
+    color: #777777
+}
+
+.listOfMusic .album {
+    height: 100%;
+    width: 80px;
+    position: absolute;
+}
+
+.listOfMusic .album img {
+    width: 50px;
+    height: 50px;
+>>>>>>> c6be50bd8cb06ac0f06256e0d8f0ad4d301b75eb
 }

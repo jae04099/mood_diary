@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 <!DOCTYPE html>
 <html lang="ko">
 
@@ -193,4 +194,200 @@
     </script>
 </body>
 
+=======
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+        content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, width=device-width">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <meta name="author" content="Adore_voy">
+    <meta name="description" content="감정을 음악으로 기록하는 기록집 입니다.">
+    <meta name="keywords" content="음악, 음악기록, 일기, 다이어리, mood diary, feeling diary, 감정 기록장, 감정 플레이리스트, 감정 음악">
+    <title>감정 플레이리스트</title>
+
+    <!--css-->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" />
+    <link rel="stylesheet" href="../static/css/reset.css">
+    <link rel="stylesheet" href="../static/css/check-record_style.css">
+
+    <!--파비콘-->
+
+    <!--웹폰트-->
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@100;300;400;500;700;900&display=swap"
+        rel="stylesheet">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Gothic+A1:wght@100;200;300;400;500;600;700;800;900&display=swap"
+        rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@100;300;400;500;700;900&display=swap"
+        rel="stylesheet">
+
+
+    <!--font-family: 'Gothic A1', sans-serif;-->
+</head>
+
+<body class="clearfix">
+    <div class="container">
+        <div id="top">
+            <a onclick='goBack()'>
+                <div class="key-back">
+                    <i class="fa fa-arrow-left" aria-hidden="true"></i>
+                    메인으로
+                </div>
+            </a>
+        </div>
+        <header id="header">
+            <div class="greeting">
+                <h1>감정기록</h1>
+            </div>
+        </header>
+        <section id="body">
+            <div class="diaryList">
+                <ul class="diaryBox">
+                    <i class="fa fa-times-circle" aria-hidden="true"></i>
+                    <li>
+                        <div class="faceImg"><img src="../static/img/lovely.png" alt=""></div>
+                    </li>
+                    <li class="notImg">
+                        <span class="dateSmol">2020.10.27</span>
+                        <p class="diarySmol">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Amet asperiores,
+                            atque corporis cupiditate dolore dolores earum eligendi illum, incidunt laborum magni
+                            maiores
+                            molestias necessitatibus perferendis quibusdam
+                    </li>
+                    <li class="favMusic">
+                        <hr class="end-line">
+                        <div class="listOfMusic">
+                            <ul class="music-more">
+                                <li class="title">EVERYTHING</li>
+                                <li class="artist">검정치마 The Black Skirts</li>
+                            </ul>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+            <!-- <ul class="diaryBox">
+            <i class="fa fa-times-circle" aria-hidden="true"></i>
+            <li>
+                <div class="faceImg"><img src="../static/img/lovely.png" alt=""></div>
+            </li>
+            <li class="notImg">
+                <span class="dateSmol">2020.10.27</span>
+                <p class="diarySmol">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Amet asperiores,
+                    atque corporis cupiditate dolore dolores earum eligendi illum, incidunt laborum magni maiores
+                    molestias necessitatibus perferendis quibusdam quis rem repellat reprehenderit sed vel veniam
+                    vero voluptatibus! Ab alias aperiam debitis deserunt distinctio, esse harum maiores nesciunt
+                    nisi optio porro provident, quas rem, reprehenderit sapiente soluta ut veritatis. Asperiores
+                    aspernatur cumque delectus deleniti et eum eveniet exercitationem explicabo iusto maiores
+                    mollitia nemo nesciunt quam repellendus repudiandae sit tempora, unde ut veniam voluptatem!
+                    Accusantium alias, dicta dignissimos doloribus facilis fugiat fugit illum nemo, nihil, nobis
+                    possimus temporibus. Dignissimos dolores modi odit quibusdam recusandae.
+                </p>
+            </li>
+            <li class="favMusic">
+                <hr class="end-line">
+                <div class="listOfMusic">
+                    <div class="album"><img src="https://image.bugsm.co.kr/album/images/500/200196/20019666.jpg"
+                                            alt="검정치마 everything"></div>
+                    <ul class="music-more">
+                        <li class="title">EVERYTHING</li>
+                        <li class="artist">검정치마 The Black Skirts</li>
+                    </ul>
+                </div>
+            </li>
+        </ul> -->
+        </section>
+        <footer id="footer"></footer>
+    </div>
+    <!-- 자바스크립트 라이브러리 -->
+    <script src="https://code.jquery.com/jquery-3.5.1.js"
+        integrity="sha256-QWo7LDvxbWT2tbbQ97B53yJnYU3WhH/C8ycbRAkjPDc=" crossorigin="anonymous"></script>
+    <script src="https://use.fontawesome.com/b17215fc37.js"></script>
+    <script>
+        //goback key
+        function goBack() {
+            window.location.href = '/main';
+        }
+        //db의 기록을 읽어서 출력하는 함수
+        $('document').ready(function () {
+            $('.diaryList').empty();
+            readList();
+        });
+
+        function readList() {
+            $.ajax({
+                type: 'GET',
+                url: '/checkrecorded',
+                data: {},
+                success: function (response) {
+                    if (response["result"] == 'success') {
+                        let records = response["records"];
+                        // console.log(records.length)
+                        let feelUrl = null;
+                        for (let i = 0; i < records.length; i++) {
+                            if (records[i]["feel"] == "편안") {
+                                feelUrl = "../static/img/satisfy.png";
+                            } else if (records[i]["feel"] == "기쁨") {
+                                feelUrl = "../static/img/smile.png"
+                            } else if (records[i]["feel"] == "설렘") {
+                                feelUrl = "../static/img/lovely.png"
+                            } else if (records[i]["feel"] == "불안") {
+                                feelUrl = "../static/img/disappoint.png"
+                            } else if (records[i]["feel"] == "슬픔") {
+                                feelUrl = "../static/img/sad.png"
+                            } else if (records[i]["feel"] == "화남") {
+                                feelUrl = "../static/img/angry.png"
+                            }
+                            makeHtml(feelUrl, records[i]["date"], records[i]["diary"], records[i]["music_title"], records[i]["music_artist"])
+                        }
+                    }
+                }
+            })
+        }
+
+        function makeHtml(feeling, date, diary, mTitle, mArtist) {
+            let tempHtml = `
+    <ul class="diaryBox">
+    <i onclick="deleteRecord('${mTitle}')" class="fa fa-times-circle" aria-hidden="true"></i>
+            <li>
+                <div class="faceImg"><img src="${feeling}" alt=""></div>
+            </li>
+            <li class="notImg">
+                <span class="dateSmol">${date}</span>
+                <p class="diarySmol">${diary}
+            </li>
+            <li class="favMusic">
+                <hr class="end-line">
+                <div class="listOfMusic">
+                    <ul class="music-more">
+                        <li class="title">${mTitle}</li>
+                        <li class="artist">${mArtist}</li>
+                    </ul>
+                </div>
+            </li>
+            </ul>
+    `;
+            $('.diaryList').append(tempHtml)
+        }
+
+        //x버튼 누르면 기록이 지워지는 함수
+        function deleteRecord(title) {
+            $.ajax({
+                type: 'POST',
+                url: '/checkrecord/delete',
+                data: { 'music_title': title },
+                success: function (response) {
+                    if (response['result'] == 'success') {
+                        alert('삭제함');
+                        window.location.reload();
+                    }
+                }
+            })
+        }
+    </script>
+</body>
+
+>>>>>>> c6be50bd8cb06ac0f06256e0d8f0ad4d301b75eb
 </html>

@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 <!DOCTYPE html>
 <html lang="ko">
 
@@ -105,4 +106,112 @@
     </script>
 </body>
 
+=======
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+        content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, width=device-width">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <meta name="author" content="Adore_voy">
+    <meta name="description" content="감정을 음악으로 기록하는 기록집 입니다.">
+    <meta name="keywords" content="음악, 음악기록, 일기, 다이어리, mood diary, feeling diary, 감정 기록장, 감정 플레이리스트, 감정 음악">
+    <title>감정 플레이리스트</title>
+
+    <!--css-->
+    <link rel="stylesheet" href="../static/css/musicByEmotion_style.css">
+    <link rel="stylesheet" href="../static/css/reset.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" />
+
+
+    <!--파비콘-->
+
+    <!--웹폰트-->
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@100;300;400;500;700;900&display=swap"
+        rel="stylesheet">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Gothic+A1:wght@100;200;300;400;500;600;700;800;900&display=swap"
+        rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@100;300;400;500;700;900&display=swap"
+        rel="stylesheet">
+
+
+    <!--font-family: 'Gothic A1', sans-serif;-->
+</head>
+
+<body class="clearfix">
+    <div class="container">
+        <div id="top">
+            <div class="key-back">
+                <a onclick="goBack()"><i class="fa fa-arrow-left" aria-hidden="true"></i>
+                    메인으로</a>
+            </div>
+        </div>
+        <header id="header">
+            <div class="greeting">
+                <h1>음악</h1>
+                <h3>내가 <span>화가날</span>때 듣는 노래</h3>
+            </div>
+        </header>
+        <section id="body">
+            <div id="musicBox">
+                <div class="listOfMusic">
+                    <ul class="music-more">
+                        <li class="title">EVERYTHING</li>
+                        <li class="artist">검정치마 The Black Skirts</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+        <footer id="footer"></footer>
+    </div>
+    <!-- 자바스크립트 라이브러리 -->
+    <script src="https://code.jquery.com/jquery-3.5.1.js"
+        integrity="sha256-QWo7LDvxbWT2tbbQ97B53yJnYU3WhH/C8ycbRAkjPDc=" crossorigin="anonymous"></script>
+    <script src="https://use.fontawesome.com/b17215fc37.js"></script>
+    <script>
+        $(document).ready(function () {
+            $('#musicBox').empty()
+            showHappy();
+        });
+
+        //goback key
+        function goBack() {
+            window.location.href = '/main';
+        }
+
+        function emoCardHtml(title, artist) {
+            let tempHtml = `<div class="listOfMusic">
+                    <ul class="music-more">
+                        <li class="title">${title}</li>
+                        <li class="artist">${artist}</li>
+                    </ul>
+                    </div>
+            `
+            $('#musicBox').append(tempHtml)
+        }
+
+        function showHappy() {
+            $.ajax({
+                type: 'GET',
+                url: '/checkrecorded',
+                data: {},
+                success: function (response) {
+                    if (response['result'] == 'success') {
+                        let records = response["records"];
+                        for (let i = 0; i < records.length; i++) {
+                            if (records[i]["feel"] == "화남") {
+                                emoCardHtml(records[i]["music_title"], records[i]["music_artist"])
+                            }
+                        }
+                    }
+                }
+            })
+        }
+    </script>
+</body>
+
+>>>>>>> c6be50bd8cb06ac0f06256e0d8f0ad4d301b75eb
 </html>
