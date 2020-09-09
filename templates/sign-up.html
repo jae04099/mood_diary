@@ -17,7 +17,7 @@
 
     <!--css-->
     <link rel="stylesheet" href="../static/css/reset.css">
-    <link rel="stylesheet" href="../static/css/login_style.css">
+    <link rel="stylesheet" href="../static/css/sign_up_style.css">
 
     <!--파비콘-->
     <link rel="shortcut icon" href="/static/img/favicon-32x32 (2).png">
@@ -46,24 +46,24 @@
         </div>
         <header id="header">
             <div class="greeting">
-                <h1>어서오세요</h1>
-                <h3>음악일기장 입니다!</h3>
+                <h1>회원가입</h1>
             </div>
         </header>
         <!--//header-->
 
         <section id="body">
-            <div class="illust">
+            <!-- <div class="illust">
                 <a href="#" class="ir_su">main page illust</a>
                 <img class="illust-png" src="../static/img/mainillust.png" alt="main page illust">
-            </div>
+            </div> -->
             <div class="btn">
+                <label for="fnickame"></label>
+                <input type="text" id="fnickname" name="firstname" placeholder="닉네임을 입력해주세요" autocomplete="off">
                 <label for="fname"></label>
                 <input type="text" id="fname" name="firstname" placeholder="아이디를 입력해주세요" autocomplete="off">
                 <label for="fpw"></label>
-                <input type="password" id="fpw" name="firstname" placeholder="비밀번호를 입력해주세요" autocomplete="off">
-                <input type="submit" value="시작하기" class="btn-enter" onclick="signIn()">
-                <a onclick="goToSignUpPage()" class="toSignUp">간편 회원가입</a>
+                <input type="text" id="fpw" name="firstname" placeholder="비밀번호를 입력해주세요" autocomplete="off">
+                <input type="submit" value="회원가입" class="btn-enter" onclick="submitSignInfo()">
 
             </div>
 
@@ -78,24 +78,6 @@
 
     <!-- 자바스크립트 라이브러리 -->
     <script>
-        function signIn(){
-            let enteredID = $('#fname').val();
-            let enteredPW = $('#fpw').val();
-            
-            $.ajax({
-                type: "POST",
-                url: "/",
-                data: {ID: enteredID, PW: enteredPW},
-                success: function(response){
-                    if(response["result"] == "success"){
-                    window.location.href = "/main"
-                    }else{
-                        alert('없는 아이디이거나 비밀번호가 다릅니다.')
-                    }
-                }
-            })
-        }
-
         // function SetCookie(NameKey, NameValue, ExpDate) {
         //     var strCookie = "";
         //     strCookie = NameKey + '=' + encodeURIComponent(NameValue) + "; expires=" + ExpDate;
@@ -112,10 +94,24 @@
         //     SetCookie(nameKey, nameValue, expDate);
         //     window.location.href = "/main"
         // }
-
-        function goToSignUpPage() {
-            window.location.href = "/signup"
+        function submitSignInfo(){
+            let nickName = $("#fnickname").val();
+            let userId = $("#fname").val();
+            let userPw = $("#fpw").val();
+            
+            $.ajax({
+                type: "POST",
+                url: "/signup",
+                data: {nickname: nickName, ID: userId, PW: userPw},
+                success: function(response){
+                    if(response["result"] == "success"){
+                        alert(JSON.stringify((response)['msg']));
+                        window.location.href = "/";
+                    }
+                }
+            })
         }
+
 
     </script>
 </body>
