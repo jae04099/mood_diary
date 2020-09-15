@@ -107,6 +107,8 @@
                     if(response["result"] == "success"){
                         alert(JSON.stringify((response)['msg']));
                         window.location.href = "/";
+                    }else {
+                        alert(JSON.stringify((response)['msg']))
                     }
                 }
             })

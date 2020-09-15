@@ -120,7 +120,7 @@
     <script src="https://use.fontawesome.com/b17215fc37.js"></script>
     <script>
         $(document).ready(function () {
-            // ('#header').empty();
+            // ('.greeting').empty();
             ShowCookie();
 
             // let name = window.location.search;
@@ -174,12 +174,11 @@
             let afterDecode = decodeURI(onlyName)
 
             nameHtml(afterDecode);
-
-            // if( document.cookie == null || document.cookie == "" )
-            // {
-            // 	divCookie.innerHTML = "";
-            // 	return;
-            // }
+            if( document.cookie == null || document.cookie == "" )
+            {
+            	divCookie.innerHTML = "";
+            	return;
+            }
 
             // var listCookie = document.cookie.split( "; " );
             // var strCookie = "";

@@ -68,6 +68,7 @@ def emotionangry():
 
 # API 역할 부분
 
+
 @app.route('/signup', methods=['POST'])
 def add_personal_info():
     nickname_recieve = request.form['nickname']
@@ -79,9 +80,12 @@ def add_personal_info():
         'ID': id_recieve,
         'PassWord': pw_recieve
     }
+    if nickname_recieve == '' or id_recieve == '' or pw_recieve == '':
+        return jsonify({'result': 'error', 'msg': '빈칸이 없이 적어주세요'})
+    else:
+        db.person_info.insert_one(person_info)
+        return jsonify({'result': 'success', 'msg': '가입되셨습니다.'})
 
-    db.person_info.insert_one(person_info)
-    return jsonify({'result': 'success', 'msg': '가입되셨습니다.'})
  # 로그인 처리
 
 
@@ -89,16 +93,19 @@ def add_personal_info():
 def verified_login():
     entered_id = request.form['ID']
     entered_pw = request.form['PW']
-    exist_info = db.person_info.find({"ID": entered_id}, {"PassWord": entered_pw}).count()
-    if exist_info>=1:
-        return jsonify({'result': 'success'})
-    else :
+    exist_info = db.person_info.find(
+        {"ID": entered_id}, {"PassWord": entered_pw}).count()
+    if exist_info >= 1:
+        target_ID = db.person_info.find_one({'ID': entered_id})
+        session['username'] = target_ID['nickname']
+        # result = '%s' % escape(session["username"])
+        return jsonify({'result': 'success', 'nickname': target_ID['nickname']})
+    else:
         return jsonify({'result': 'error'})
-
-
 
 @app.route('/record', methods=['POST'])
 def write_record():
+    nickname = request.cookies.get('UserName')
     date_receive = request.form['date']
     feel_receive = request.form['feel']
     title_receive = request.form['musicTitle']
@@ -106,6 +113,7 @@ def write_record():
     diary_receive = request.form['diary']
 
     music_diary = {
+        'nickname' : nickname,
         'date': date_receive,
         'feel': feel_receive,
         'music_title': title_receive,
@@ -128,7 +136,6 @@ def read_record():
 @app.route('/checkrecord/delete', methods=['POST'])
 def delete_record():
     title_receive = request.form.get('music_title')
-    print(title_receive)
     db.music_diary.delete_one({'music_title': title_receive})
     return jsonify({'result': 'success'})
 

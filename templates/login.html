@@ -78,40 +78,37 @@
 
     <!-- 자바스크립트 라이브러리 -->
     <script>
-        function signIn(){
+        function signIn() {
             let enteredID = $('#fname').val();
             let enteredPW = $('#fpw').val();
-            
+
             $.ajax({
                 type: "POST",
                 url: "/",
-                data: {ID: enteredID, PW: enteredPW},
-                success: function(response){
-                    if(response["result"] == "success"){
-                    window.location.href = "/main"
-                    }else{
+                data: { ID: enteredID, PW: enteredPW },
+                success: function (response) {
+                    if (response["result"] == "success") {
+                        function SetCookie(NameKey, NameValue, ExpDate) {
+                            var strCookie = "";
+                            strCookie = NameKey + '=' + encodeURIComponent(NameValue) + "; expires=" + ExpDate;
+                            document.cookie = strCookie;
+                        }
+
+                            let nameKey = "UserName";
+                            let nameValue = response['nickname']
+                            let date = new Date();
+                            date.setDate(date.getDate() + 30);
+                            let expDate = date.toUTCString();
+                            console.log(expDate);
+                            SetCookie(nameKey, nameValue, expDate);
+                        window.location.href = "/main"
+                    } else {
                         alert('없는 아이디이거나 비밀번호가 다릅니다.')
                     }
                 }
             })
         }
 
-        // function SetCookie(NameKey, NameValue, ExpDate) {
-        //     var strCookie = "";
-        //     strCookie = NameKey + '=' + encodeURIComponent(NameValue) + "; expires=" + ExpDate;
-        //     document.cookie = strCookie;
-        // }
-
-        // function AddCookie() {
-        //     let nameKey = "UserName";
-        //     let nameValue = $('#fname').val();
-        //     let date = new Date();
-        //     date.setDate(date.getDate() + 30);
-        //     let expDate = date.toUTCString();
-        //     console.log(expDate);
-        //     SetCookie(nameKey, nameValue, expDate);
-        //     window.location.href = "/main"
-        // }
 
         function goToSignUpPage() {
             window.location.href = "/signup"

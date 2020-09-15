@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="ko">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport"
@@ -118,7 +119,12 @@
             $('.diaryList').empty();
             readList();
         });
+        let cookieFull = document.cookie;
+        let onlyForName = cookieFull.split('=');
+        let onlyName = onlyForName[1];
+        let afterDecode = decodeURI(onlyName)
 
+        console.log(afterDecode)
         function readList() {
             $.ajax({
                 type: 'GET',
@@ -130,20 +136,22 @@
                         // console.log(records.length)
                         let feelUrl = null;
                         for (let i = 0; i < records.length; i++) {
-                            if (records[i]["feel"] == "편안") {
-                                feelUrl = "../static/img/satisfy.png";
-                            } else if (records[i]["feel"] == "기쁨") {
-                                feelUrl = "../static/img/smile.png"
-                            } else if (records[i]["feel"] == "설렘") {
-                                feelUrl = "../static/img/lovely.png"
-                            } else if (records[i]["feel"] == "불안") {
-                                feelUrl = "../static/img/disappoint.png"
-                            } else if (records[i]["feel"] == "슬픔") {
-                                feelUrl = "../static/img/sad.png"
-                            } else if (records[i]["feel"] == "화남") {
-                                feelUrl = "../static/img/angry.png"
+                            if (afterDecode == decodeURI(records[i]["nickname"])) {
+                                if (records[i]["feel"] == "편안") {
+                                    feelUrl = "../static/img/satisfy.png";
+                                } else if (records[i]["feel"] == "기쁨") {
+                                    feelUrl = "../static/img/smile.png"
+                                } else if (records[i]["feel"] == "설렘") {
+                                    feelUrl = "../static/img/lovely.png"
+                                } else if (records[i]["feel"] == "불안") {
+                                    feelUrl = "../static/img/disappoint.png"
+                                } else if (records[i]["feel"] == "슬픔") {
+                                    feelUrl = "../static/img/sad.png"
+                                } else if (records[i]["feel"] == "화남") {
+                                    feelUrl = "../static/img/angry.png"
+                                }
+                                makeHtml(feelUrl, records[i]["date"], records[i]["diary"], records[i]["music_title"], records[i]["music_artist"])
                             }
-                            makeHtml(feelUrl, records[i]["date"], records[i]["diary"], records[i]["music_title"], records[i]["music_artist"])
                         }
                     }
                 }
@@ -191,4 +199,3 @@
         }
     </script>
 </body>
-
