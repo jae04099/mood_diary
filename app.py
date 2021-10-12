@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 from pymongo import MongoClient
 from bs4 import BeautifulSoup
 import requests
@@ -7,7 +8,7 @@ app = Flask(__name__)
 app.secret_key = "12341234"
 
 # client = MongoClient('mongodb://test:test@localhost', 27017)
-client = MongoClient('localhost', 27017)
+client = MongoClient('mongodb+srv://jae04099:Lc0711zz@moodplaylist.n3ute.mongodb.net/test', 27017)
 db = client.dbmusicdiary
 
 
@@ -144,4 +145,3 @@ if __name__ == '__main__':
     app.run('0.0.0.0', port=5000, debug=True)
 
 
-# >>>>>> > c6be50bd8cb06ac0f06256e0d8f0ad4d301b75eb
